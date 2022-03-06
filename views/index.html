@@ -1,20 +1,43 @@
 <html>
   <head>
-     <script>
-       function proxy(){
-          let inputValue = document.getElementById("submitURL").value; 
-          document.cookie = "proxyUrl="+inputValue
+    <script src="/content/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function visit(){
+        var defaultS = getCookie('defaultSearch')
+        
+        document.cookie = "defaultSearch=www.google.com/search?q="
+        
+      }
+      
+      function isValidURL(str) {
+        var regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+        if (regexp.test(str)) {
+            return true;
+        } else {
+            return false;
         }
-       function name(params) {
-         
-       }
-     </script> 
+      }
+      
+      function proxy(){
+        var defaultSearch = getCookie('defaultSearch')
+        var inputUrl = $( "#proxyUrl" ).val();
+        if (isValidURL(inputUrl)){
+        document.cookie = `proxyUrl=${inputUrl}`
+        } else {
+          document.cookie = `proxyUrl=${defaultSearch}${inputUrl}`
+        }
+        
+      }
+      
+      visit();
+    </script>
   </head>
-  <body>
-    <form method=""
-    <input id="proxyUrl" 
-    <button id="Classic" onclick="sleathButton()">Classic</button><br>
-    <button id="Stealth" onclick="classicButton()">Stealth</button>
+  <body>    
+    
+    <form method="POST" onsubmit="proxy();">
+      <input id="proxyUrl" required>
+    </form>
     
   </body>
 </html>

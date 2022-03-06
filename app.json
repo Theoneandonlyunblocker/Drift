@@ -1,3 +1,4 @@
 {
-  "proxy_url": "https://TermX-Proxy.jimmynuetron.repl.co"
+  "proxy_path": "/proxy",
+  "proxy_url": "drift.jimmynuetron.repl.co"
 }
