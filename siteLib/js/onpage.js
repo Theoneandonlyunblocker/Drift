@@ -8,30 +8,55 @@ function validUrl(trUrl) {
   }
 }
 
+var observeDOM = (function() {
+  var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+  return function(obj, callback) {
+    if (!obj || obj.nodeType !== 1) return;
+
+    if (MutationObserver) {
+
+      var mutationObserver = new MutationObserver(callback)
+
+      mutationObserver.observe(obj, { childList: true, subtree: true })
+      return mutationObserver
+    }
+
+    else if (window.addEventListener) {
+      obj.addEventListener('DOMNodeInserted', callback, false)
+      obj.addEventListener('DOMNodeRemoved', callback, false)
+    }
+  }
+})()
+
 function update() {
-  console.log("Updating Elms")
-  
   var DRIFTelements = document.querySelectorAll("*")
+
   for (let i = 0; i < DRIFTelements.length; i++) {
     var DRIFTelm = DRIFTelements[i]
-    var href = DRIFTelm.getAttribute('drift-href')
-    var src = DRIFTelm.getAttribute('drift-src')
-    var action = DRIFTelm.getAttribute('drift-action')
+    var DriftHref = DRIFTelm.getAttribute('drift-href')
+    var DriftSrc = DRIFTelm.getAttribute('drift-src')
+    var DriftAction = DRIFTelm.getAttribute('drift-action')
 
     //DRIFTelm.removeAttribute('integrity')
-    
-    if (href) {
-      DRIFTelm.href = href
+
+    if (DriftHref) {
+      console.log(DriftHref)
+      DRIFTelm.href = DriftHref
     }
-    if (src) {
-      DRIFTelm.src = src
+    if (DriftSrc) {
+      console.log(DriftSrc)
+      DRIFTelm.src = DriftSrc
     }
-    if (action) {
-      DRIFTelm.action = action
+    if (DriftAction) {
+      console.log(DriftAction)
+      DRIFTelm.action = DriftAction
     }
   }
 }
 
+update()
+
 setInterval(function(){
   update()
-}, 500)
+},10000)

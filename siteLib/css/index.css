@@ -3,3 +3,21 @@
 * {
   font-family: 'Fredoka', sans-serif;
 }
+      
+body {
+  background: deeppink;
+}
+
+h1,h2 {
+  color:white;
+  font-size: 300%;
+}
+
+#proxyUrl {
+  background: blueviolet;
+  border-radius: 25px;
+  width: 75%;
+  color: white;
+  height: 25px;
+  /*font-size: 150%;*/
+}
