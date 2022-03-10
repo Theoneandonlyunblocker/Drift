@@ -8,11 +8,8 @@ const rewriter = require('./lib/rewriter.js')
 var config = require('./app.json')
 
 app.set('view engine', 'hbs');
-console.log(rewriter.rewriteUrlLogic('https://discord.com/register','discord.com'))
 
 var proxyPath = config.prefix
-
-console.log(proxyPath)
 
 function getcookie(req) {
   const parseCookie = str =>
@@ -54,14 +51,14 @@ app.get(`${proxyPath}/*`, function(req, res) {
       if (error){
         res.send(error.toString())
       } else {
-      console.log(response.caseless.get('Content-Type'))
+      
       if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
         var contentType = response.caseless.get('Content-Type')
       } else {
         var contentType = "text/css"
       }
       
-      console.log(contentType)
+      
       if (!(typeof contentType === "undefined")) {
         res.set({ 'Content-Type': response.caseless.get('Content-Type') })
       } else {
@@ -108,14 +105,13 @@ app.post('/', function(req, res) {
     if (error){
       res.send(error)
     } else {
-    console.log(response.caseless.get('Content-Type'))
+    
     if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
       var contentType = response.caseless.get('Content-Type')
     } else {
       var contentType = "text/css"
     }
     
-    console.log(contentType)
     if (!(typeof contentType === "undefined")) {
       res.set({ 'Content-Type': response.caseless.get('Content-Type') })
     } else {
