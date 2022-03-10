@@ -4,10 +4,10 @@ const https = require('https')
 var express = require('express')
 var app = express()
 const rewriter = require('./lib/rewriter.js')
-var content_type = require('./lib/contentType.js')
 var config = require('./app.json')
 
 app.set('view engine', 'hbs');
+console.log(rewriter.rewriteUrlLogic('https://discord.com/register','discord.com'))
 
 var proxyPath = config.proxy_path
 
@@ -67,21 +67,24 @@ app.get(`/proxy/*`, function(req, res) {
     proxyUrl = `https://${proxyUrl}`
 
     request(proxyUrl, function(error, response, body) {
-      try {
+    
+      if (error){
+        res.send(error)
+      } else {
+      console.log(response.caseless.get('Content-Type'))
       if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
         var contentType = response.caseless.get('Content-Type')
       } else {
         var contentType = "text/css"
-      }} catch {
-        
-      }var contentType = "text/css"
+      }
       
+      console.log(contentType)
       if (!(typeof contentType === "undefined")) {
         res.set({ 'Content-Type': response.caseless.get('Content-Type') })
       } else {
         res.set({ "Content-Type": 'text/css' })
       }
-
+  
       if (contentType.includes("image")) {
         request({
           url: url,
@@ -89,9 +92,9 @@ app.get(`/proxy/*`, function(req, res) {
         },
           (err, resp, buffer) => {
             res.set({ "Content-Type": contentType });
-
+            
             res.send(Buffer.from(response.body));
-
+  
           });
       } else {
         if (contentType.includes("text/html")) {
@@ -100,6 +103,7 @@ app.get(`/proxy/*`, function(req, res) {
           res.send(body)
         }
       }
+    }
     });
   } catch {
     res.sendFile('500.html', { "root": __dirname + "/views" })
@@ -116,7 +120,10 @@ app.post('/', function(req, res) {
 
 
   request(proxyUrl, function(error, response, body) {
-
+    
+    if (error){
+      res.send(error)
+    } else {
     console.log(response.caseless.get('Content-Type'))
     if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
       var contentType = response.caseless.get('Content-Type')
@@ -124,6 +131,7 @@ app.post('/', function(req, res) {
       var contentType = "text/css"
     }
     
+    console.log(contentType)
     if (!(typeof contentType === "undefined")) {
       res.set({ 'Content-Type': response.caseless.get('Content-Type') })
     } else {
@@ -137,7 +145,7 @@ app.post('/', function(req, res) {
       },
         (err, resp, buffer) => {
           res.set({ "Content-Type": contentType });
-
+          
           res.send(Buffer.from(response.body));
 
         });
@@ -148,6 +156,7 @@ app.post('/', function(req, res) {
         res.send(body)
       }
     }
+  }
   });
 });
 
