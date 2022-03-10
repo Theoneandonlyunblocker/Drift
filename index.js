@@ -160,6 +160,10 @@ app.get('/game/:game',function(req,res){
   res.sendFile(`./siteLib/games/${game.toLowerCase()}.html`,{"root":__dirname})
 })
 
+app.get('/bookmarks',function(req,res){
+  res.sendFile('bookmarklets.html',{"root":__dirname+"/views"})
+})
+
 app.get('/*', function(req, res) {
   res.sendFile("404.html", { "root": __dirname + "/views" })
 })

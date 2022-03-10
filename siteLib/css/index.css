@@ -55,11 +55,23 @@ input {
 }
 
 .game a {
-  
+  padding: 12px;
 }
 
 .game img {
   border-color: white;
   border-width: 12px;
   padding: 12px;
+}
+
+.bookmarks p {
+  padding: 12px;
+  background-color: #f300c3;
+  float: center;
+}
+
+.bookmarks a {
+  padding: 12px;
+  background-color: #f300c3;
+  float: center;
 }

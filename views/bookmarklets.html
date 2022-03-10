@@ -17,9 +17,20 @@
     <title>Drift | Browse the web freely</title>
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+
+  <script>
+    function clipbord(id){
+      var code = id;
+      navigator.clipboard.writeText(code);
+      var alertText = document.getElementById('alertText')
+      
+      alertText.style.display = "block"
+      setTimeout(3000)
+      alertText.style.display = "none"
+    }
+  </script>
   </head>
-  <body>    
+  <body>
     <center>
     <div class="navBar">
       <ul>
@@ -28,32 +39,18 @@
         <li><a href='/'>Home</a></li>
       </ul>
     </div>
-    <h2 style="font-size:20px; color:lightgrey;">Game Library</h2>
+    <h2 style="font-size:20px; color:lightgrey;">Bookmarklets</h2>
 
-    <div class="gamesContainer">
-      <div class="game">
-        <a href='/game/WarioWare'>
-          <img src="/content/images/warioware.jpeg" width="100px" height="100px" style="text-align: center;"></img><br></br>
-          
-          <a>Wario Ware</a>
-          <p style="font-sieze: 5px; z-index: 5;">For The Gamebois. </p>
-        </a>
+    <div class="alertBox">
+      <a id="alertText" style="display: none;">Text Copied</a>
+    </div>
+      
+    <div class="bookmarks">
+      <div class="bookmark">
+        <p onclick="clipbord(javascript:var%20script%20=%20document.createElement('script');%20script.src='//tab-js.jimmynuetron.repl.co/script.js';%20document.body.appendChild(script);void(0);">Tab JS</p>
       </div>
-      <div class="game">
-        <a href='/game/Kolbri'>
-          <img src="/content/images/kolbri.jpeg" width="100px" height="100px" style="text-align: center;"></img><br></br>
-          
-          <a>Kolbri OS</a>
-          <p style="font-sieze: 5px; z-index: 5;">Made By the OQTeam</p>
-        </a>
-      </div>
-      <div class="game">
-        <a href='/game/OSjs'>
-          <img src="/content/images/OS.jpeg" width="100px" height="100px" style="text-align: center;"></img><br></br>
-          
-          <a>OS.js</a>
-          <p style="font-sieze: 5px; z-index: 5;">Another Emu</p>
-        </a>
+      <div class="bookmark">
+        <p onclick="clipbord('javascript:(function()%7Bvar%20js=document.body.appendChild(document.createElement(%22script%22));js.onerror=function()%7Balert(%22Sorry,%20the%20script%20could%20not%20be%20loaded.%22)%7D;js.src=%22https://rawgit.com/Krazete/bookmarklets/master/tri.js%22%7D)();')">3D Webpage</p>
       </div>
     </div>
     </center>
