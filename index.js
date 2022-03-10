@@ -174,6 +174,6 @@ app.get('/*', function(req, res) {
   res.sendFile("404.html", { "root": __dirname + "/views" })
 })
 
-app.listen(5000, function() {
+app.listen(config.port, function() {
   console.log("Drift is running!")
 })
