@@ -9,6 +9,7 @@ var config = require('./app.json')
 
 app.set('view engine', 'hbs');
 
+const blockedSites = config.blacklist
 var proxyPath = config.prefix
 
 function getcookie(req) {
@@ -46,6 +47,8 @@ app.get(`${proxyPath}/*`, function(req, res) {
 
     proxyUrl = `https://${proxyUrl}`
 
+    if (!(blockedSites.includes(proxyUrl))){
+    
     request(proxyUrl, function(error, response, body) {
     
       if (error){
@@ -85,6 +88,9 @@ app.get(`${proxyPath}/*`, function(req, res) {
       }
     }
     });
+    } else {
+      res.render('blocked',{site:proxyUrl})
+    }
   } catch (e) {
     console.log(e)
     res.sendFile('500.html', { "root": __dirname + "/views" })

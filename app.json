@@ -1,3 +1,9 @@
 {
-  "prefix": "/qazwxedcrfvtgbyhnumjikolpqazwxedcrfvtgbyhnumjikolpqazwxedcrfvtgbyhnumjikolpqazwxedcrfvtgbyhnumjikolpqazwxedcrfvtgbyhnumjikolpqazwxedcrfvtgbyhnumjikolpqazwxedcrfvtgbyhnumjikolpqazwxedcrfvtgbyhnumjikolp"
+  "prefix": "/main",
+  "blacklist": [
+    "https://pornhub.com",
+    "https://rule34.xxx",
+    "https://xvideos.com",
+    "https://xnxx.com"
+  ]
 }
