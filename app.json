@@ -1,4 +1,4 @@
 {
-  "proxy_path": "/proxy",
+  "prefix": "/lesson",
   "proxy_url": "ant-network.net"
 }

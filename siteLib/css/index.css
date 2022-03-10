@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
 
 * {
+  color:white;
   font-family: 'Fredoka', sans-serif;
 }
       
@@ -15,9 +16,50 @@ h1,h2 {
 
 #proxyUrl {
   background: blueviolet;
+  border: white 5px solid;
   border-radius: 25px;
   width: 75%;
   color: white;
-  height: 25px;
+  height: 50px;
   /*font-size: 150%;*/
+}
+
+input::placeholder {
+  font-size: 15px;
+  float: center;
+  color: white;
+}
+
+input {
+  color: white;
+}
+
+.navBar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+}
+.navBar li {   
+  float: left; 
+}  
+.navBar li a {
+  display: block;   
+  padding: 8px;   
+  background-color: #ff1493;
+}
+
+.game {
+  background-color: #f300c3;
+  float: left;
+}
+
+.game a {
+  
+}
+
+.game img {
+  border-color: white;
+  border-width: 12px;
+  padding: 12px;
 }

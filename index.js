@@ -1,42 +1,18 @@
 var url = require('url');
 const request = require('request')
-const https = require('https')
+var fs = require('fs')
 var express = require('express')
 var app = express()
+var hbs = require('hbs')
 const rewriter = require('./lib/rewriter.js')
 var config = require('./app.json')
 
 app.set('view engine', 'hbs');
 console.log(rewriter.rewriteUrlLogic('https://discord.com/register','discord.com'))
 
-var proxyPath = config.proxy_path
+var proxyPath = config.prefix
 
-function proxyLink(url,cururl){
-  
-  if (url.match(/^(#|about:|data:|blob:|mailto:|javascript:|{|\*)/) || url.startsWith(proxyPath) || url.startsWith(cururl + proxyPath)){
-    return url;
-  };
-
-  if (url.startsWith(cururl + '/') && !url.startsWith(cururl + proxyPath)){
-    url = '/' + url.split('/').splice(3).join('/')
-  };
-
-  if (url.startsWith('//')){
-    url = 'http:' + url;
-  }
-  if (url.startsWith('/') && !url.startsWith(proxyPath)){
-    url = config.proxy_url + url;
-  }
-
-  if (url.startsWith('https://') || url.startsWith('http://')){
-    url = new URL(url)
-  }
-  else {
-    url = new URL(config.proxy_url.split('/').slice(0, -1).join('/') + '/' + url);
-  }
-  proxified = proxyPath + '/' + (url.href.split('/').splice(0, 3).join('/')) + "/" + url.href.split('/').splice(3).join('/');
-  return proxified
-}
+console.log(proxyPath)
 
 function getcookie(req) {
   const parseCookie = str =>
@@ -57,9 +33,16 @@ function getcookie(req) {
   return cookie['proxyUrl']
 }
 
-app.get(`/proxy/*`, function(req, res) {
+function isPreset(url){
+  var xCurl = url.replace('https://','')
+
+}
+
+app.get(`${proxyPath}/*`, function(req, res) {
+  //res.cookie('proxypath', proxyPath).send('cookie set');
   try {
-    var proxyUrl = req.originalUrl.substr(7, req.originalUrl.length)
+    
+    var proxyUrl = req.originalUrl.substr(proxyPath.length+1, req.originalUrl.length)
     
     proxyUrl = proxyUrl.replace("https:/", "")
     proxyUrl = proxyUrl.replace("http:/", "")
@@ -69,7 +52,7 @@ app.get(`/proxy/*`, function(req, res) {
     request(proxyUrl, function(error, response, body) {
     
       if (error){
-        res.send(error)
+        res.send(error.toString())
       } else {
       console.log(response.caseless.get('Content-Type'))
       if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
@@ -105,7 +88,8 @@ app.get(`/proxy/*`, function(req, res) {
       }
     }
     });
-  } catch {
+  } catch (e) {
+    console.log(e)
     res.sendFile('500.html', { "root": __dirname + "/views" })
   }
 });
@@ -160,7 +144,6 @@ app.post('/', function(req, res) {
   });
 });
 
-
 app.get('/', function(req, res) {
   res.sendFile("index.html", { "root": __dirname + "/views" })
 })
@@ -170,6 +153,15 @@ app.get('/content/*', function(req, res) {
   res.sendFile('siteLib/' + url, {
     "root": __dirname
   })
+})
+
+app.get('/games',function(req,res){
+  res.sendFile('games.html',{"root":__dirname+"/views"})
+})
+
+app.get('/game/:game',function(req,res){
+  var game = req.params.game
+  res.sendFile(`./siteLib/games/${game.toLowerCase()}.html`,{"root":__dirname})
 })
 
 app.get('/*', function(req, res) {
