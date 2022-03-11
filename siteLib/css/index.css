@@ -24,6 +24,16 @@ h1,h2 {
   /*font-size: 150%;*/
 }
 
+#proxyTitle {
+  background: blueviolet;
+  border: white 5px solid;
+  border-radius: 25px;
+  width: 75%;
+  color: white;
+  height: 50px;
+  /*font-size: 150%;*/
+}
+
 input::placeholder {
   font-size: 15px;
   float: center;

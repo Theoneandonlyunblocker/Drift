@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/content/css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="Drift" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ant-network.net" />
+    <meta property="og:image" content="/content/images/logo.png" />
+    <meta property="og:description" content="Make internet free." />
+    <meta name="theme-color" content="#FF1493">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="/content/images/logo.png">
+
+    <title>Drift | Browse the web freely</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <center>
+        <div class="navBar">
+            <ul>
+                <li><a href='/games'>Games</a></li>
+                <li><a href='/bookmarks'>Bookmarklets</a></li>
+                <li><a href='/'>Home</a></li>
+            </ul>
+        </div>
+        <img src="/content/images/logo.png" width="720" height="540"></img>
+
+        <h2 style="font-size:20px; color:lightgrey;">Making the internet free</h2>
+        
+        <form method="GET" onsubmit="tabCloak();">
+            <h3>Favicon Url</h3>
+            <input id="proxyUrl" placeholder="example.com/image/favicon.ico" required>
+            <h3>Title</h3>
+            <input id="proxyTitle" placeholder="All About Math By Dev ..." required>
+        </form>
+    </center>
+    <script src="/content/js/index.js"></script>
+</body>
+
+</html>
