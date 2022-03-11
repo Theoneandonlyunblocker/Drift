@@ -51,7 +51,6 @@ app.get(`${proxyPath}/*`, function (req, res) {
     if (!(blockedSites.includes(proxyUrl))) {
 
       request(proxyUrl, function (error, response, body) {
-
         if (error) {
           res.send(error.toString())
         } else {
@@ -78,13 +77,9 @@ app.get(`${proxyPath}/*`, function (req, res) {
                 url: url,
                 encoding: null
               },
-              (err, resp, buffer) => {
-                res.set({
-                  "Content-Type": contentType
-                });
-
-                res.send(Buffer.from(response.body));
-
+              (err, respond, buffer) => {
+                res.setHeader('Content-Type',contentType)
+                res.end()
               });
           } else {
             if (contentType.includes("text/html")) {

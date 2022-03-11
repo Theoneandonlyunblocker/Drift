@@ -98,9 +98,6 @@ async function update() {
   tabCloak()
 }
 
-update()
-
-
-/*observeDOM(document, function () {
+observeDOM(document, function () {
   update()
-})*/
+})

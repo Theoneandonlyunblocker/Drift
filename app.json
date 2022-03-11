@@ -1,5 +1,6 @@
 {
   "port": 8080,
+  "devmode": "true",
   "prefix": "/main",
   "blacklist": [
     "https://pornhub.com",
