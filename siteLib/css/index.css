@@ -85,3 +85,11 @@ input {
   background-color: #f300c3;
   float: center;
 }
+
+canvas {
+  filter: blur(1px);
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:-1;
+}
