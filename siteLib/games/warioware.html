@@ -1,7 +1,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="/content/css/index.css">
-    <style>
+    <script src="/content/js/onpage.js"></script>
+    <script>
+			var game = window.location.pathname.replace('/game/','')
+			document.title = `Play ${game} Online`
+      tabCloak()
+		</script>
+		<style>
       body, html {
         margin: 0;
         height: 100%;

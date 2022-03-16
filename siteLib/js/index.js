@@ -3,23 +3,23 @@ let c = init("canvas"),
   h = (canvas.height = window.innerHeight);
 //initiation
 
-class firefly{
-  constructor(){
-    this.x = Math.random()*w;
-    this.y = Math.random()*h;
-    this.s = Math.random()*2;
-    this.ang = Math.random()*2*Math.PI;
-    this.v = this.s*this.s/4;
+class firefly {
+  constructor() {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.s = Math.random() * 2;
+    this.ang = Math.random() * 2 * Math.PI;
+    this.v = this.s * this.s / 4;
   }
-  move(){
-    this.x += this.v*Math.cos(this.ang);
-    this.y += this.v*Math.sin(this.ang);
-    this.ang += Math.random()*20*Math.PI/180-10*Math.PI/180;
+  move() {
+    this.x += this.v * Math.cos(this.ang);
+    this.y += this.v * Math.sin(this.ang);
+    this.ang += Math.random() * 20 * Math.PI / 180 - 10 * Math.PI / 180;
   }
-  show(){
+  show() {
     c.beginPath();
-    c.arc(this.x,this.y,this.s,0,2*Math.PI);
-    c.fillStyle="#fddba3";
+    c.arc(this.x, this.y, this.s, 0, 2 * Math.PI);
+    c.fillStyle = "#fddba3";
     c.fill();
   }
 }
@@ -27,18 +27,18 @@ class firefly{
 let f = [];
 
 function draw() {
-  if(f.length < 100){
-    for(let j = 0; j < 10; j++){
-     f.push(new firefly());
+  if (f.length < 100) {
+    for (let j = 0; j < 10; j++) {
+      f.push(new firefly());
+    }
   }
-     }
   //animation
-  for(let i = 0; i < f.length; i++){
+  for (let i = 0; i < f.length; i++) {
     f[i].move();
     f[i].show();
-    if(f[i].x < 0 || f[i].x > w || f[i].y < 0 || f[i].y > h){
-       f.splice(i,1);
-       }
+    if (f[i].x < 0 || f[i].x > w || f[i].y < 0 || f[i].y > h) {
+      f.splice(i, 1);
+    }
   }
 }
 
@@ -87,13 +87,21 @@ function loop() {
 
 window.addEventListener("resize", function() {
   (w = canvas.width = window.innerWidth),
-  (h = canvas.height = window.innerHeight);
+    (h = canvas.height = window.innerHeight);
   loop();
 });
 
 loop();
 setInterval(loop, 1000 / 60);
 
+function password() {
+  var pass = document.getElementById('proxyUrl').value;
+  if (pass === "eisnotacolor") {
+    document.cookie = "dev=true"
+  } else {
+    document.cookie = "dev=false"
+  }
+}
 
 function favChange(link) {
   let $favicon = document.querySelector('link[rel="icon"]')
@@ -125,13 +133,27 @@ function visit() {
 }
 
 function tabCloak() {
-  var favicon = getCookie('faviconCloak')
-  var favInput = document.getElementById('proxyUrl').value;
-  var title = document.getElementById('proxyTitle');
+  var iframe = document.createElement('iframe')
+  iframe.src = document.getElementById('proxyUrl').value;
+  iframe.style.display = "none"
+  document.body.appendChild(iframe);
+  
+  function getFavicon(doc) {
+    var favicon = undefined;
+    var nodeList = doc.getElementsByTagName("link");
+    for (var i = 0; i < nodeList.length; i++) {
+      if ((nodeList[i].getAttribute("rel") == "icon") || (nodeList[i].getAttribute("rel") == "shortcut icon")) {
+        favicon = nodeList[i].getAttribute("href");
+      }
+    }
+    return favicon;
+  }
 
-  console.log(title.value)
+  favInput = getFavicon(iframe.contentWindow.window.document.body.innerHTML)
+  title = iframe.contentWindow.document.title
 
-  document.cookie = `titleCloak=${title.value}`
+  console.log(favInput,title)
+  document.cookie = `titleCloak=${title}`
   document.cookie = `faviconCloak=${favInput}`
 }
 
@@ -148,8 +170,8 @@ function proxy() {
   var inputUrl = $("#proxyUrl").val();
   inputUrl = inputUrl.replace("https://", "")
   inputUrl = inputUrl.replace("http://", "")
-  inputUrl.replace(' ','+')
-  
+  inputUrl.replace(' ', '+')
+
   if (isValidURL(inputUrl)) {
     document.cookie = `proxyUrl=${inputUrl}`
   } else {

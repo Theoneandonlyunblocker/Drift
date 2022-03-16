@@ -15,203 +15,258 @@ const blockedSites = config.blacklist
 var proxyPath = config.prefix
 const port = process.env.PORT || config.port
 
-function getcookie(req) {
-	const parseCookie = str =>
-		str
-			.split(';')
-			.map(v => v.split('='))
-			.reduce((acc, v) => {
-				acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+function proxy(req, res, proxyUrl) {
+  request(proxyUrl, function(error, response, body) {
 
-				return acc;
-			}, {});
+    if (error) {
+      res.send(error)
+    } else {
 
-	var cookie = req.headers.cookie;
-	cookie.toString()
+      if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
+        var contentType = response.caseless.get('Content-Type')
+      } else {
+        var contentType = "text/css"
+      }
 
-	cookie = parseCookie(cookie)
+      if (!(typeof contentType === "undefined")) {
+        res.set({
+          'Content-Type': response.caseless.get('Content-Type')
+        })
+      } else {
+        res.set({
+          "Content-Type": 'text/css'
+        })
+      }
 
-	return cookie['proxyUrl']
+      if (contentType.includes("image")) {
+        request({
+          url: url,
+          encoding: null
+        },
+          (err, resp, buffer) => {
+            res.set({
+              "Content-Type": contentType
+            });
+
+            res.send(Buffer.from(response.body));
+
+          });
+      } else {
+        res.send(rewriter.write(body, proxyUrl, response.caseless.get('Content-Type')));
+      }
+    }
+  })
+}
+
+function getcookie(req, name) {
+  const parseCookie = str =>
+    str
+      .split(';')
+      .map(v => v.split('='))
+      .reduce((acc, v) => {
+        acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+
+        return acc;
+      }, {});
+
+  var cookie = req.headers.cookie;
+  cookie.toString()
+
+  cookie = parseCookie(cookie)
+
+  return cookie[name]
 }
 
 function isPreset(url) {
-	var xCurl = url.replace('https://', '')
+  var xCurl = url.replace('https://', '')
 
 }
 
 app.get(`${proxyPath}/*`, function(req, res) {
-	//res.cookie('proxypath', proxyPath).send('cookie set');
-	try {
+  //res.cookie('proxypath', proxyPath).send('cookie set');
+  try {
 
-		var proxyUrl = req.originalUrl.substr(proxyPath.length + 1, req.originalUrl.length)
+    var proxyUrl = req.originalUrl.substr(proxyPath.length + 1, req.originalUrl.length)
 
-		proxyUrl = proxyUrl.replace("https:/", "")
-		proxyUrl = proxyUrl.replace("http:/", "")
+    proxyUrl = proxyUrl.replace("https:/", "")
+    proxyUrl = proxyUrl.replace("http:/", "")
 
-		proxyUrl = `https://${proxyUrl}`
+    proxyUrl = `https://${proxyUrl}`
 
-		if (!(blockedSites.includes(proxyUrl))) {
-			const options = {
-				url: proxyUrl,
-				headers: 'user-agent: Mozilla Firefox Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:53.0) Gecko/20100101 Firefox/53.0',
-				method: 'GET'
-			};
-			request(options, function(error, response, body) {
-				if (error) {
-					res.send(error.toString())
-				} else {
+    if (!(blockedSites.includes(proxyUrl))) {
+      const options = {
+        url: proxyUrl,
+        headers: 'user-agent: Mozilla Firefox Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:53.0) Gecko/20100101 Firefox/53.0',
+        method: 'GET'
+      };
+      request(options, function(error, response, body) {
+        if (error) {
+          res.send(error.toString())
+        } else {
 
-					if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
-						var contentType = response.caseless.get('Content-Type')
-					} else {
-						var contentType = "text/css"
-					}
+          if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
+            var contentType = response.caseless.get('Content-Type')
+          } else {
+            var contentType = "text/css"
+          }
 
 
-					if (!(typeof contentType === "undefined")) {
-						res.set({
-							'Content-Type': response.caseless.get('Content-Type')
-						})
-					} else {
-						res.set({
-							"Content-Type": 'text/css'
-						})
-					}
+          if (!(typeof contentType === "undefined")) {
+            res.set({
+              'Content-Type': response.caseless.get('Content-Type')
+            })
+          } else {
+            res.set({
+              "Content-Type": 'text/css'
+            })
+          }
 
-					if (contentType.includes("image")) {
-						request({
-							url: url,
-							encoding: null
-						},
-							(err, respond, buffer) => {
-								res.setHeader('Content-Type', contentType)
-								res.send(Buffer.from(response.body))
-							});
-					} else {
-						res.send(rewriter.write(body, proxyUrl, response.caseless.get('Content-Type')));
-					}
-				}
-			});
-		} else {
-			res.render('blocked', {
-				site: proxyUrl
-			})
-		}
-	} catch (e) {
-		console.log(e)
-		res.render('500',{err:e})
-	}
+          if (contentType.includes("image")) {
+            request({
+              url: url,
+              encoding: null
+            },
+              (err, respond, buffer) => {
+                res.setHeader('Content-Type', contentType)
+                res.send(Buffer.from(response.body))
+              });
+          } else {
+            if (contentType.includes("html")) {
+              res.send(rewriter.write(body, proxyUrl, response.caseless.get('Content-Type')));
+            } else {
+              res.send(body)
+            }
+          }
+        }
+      });
+    } else {
+      res.render('blocked', {
+        site: proxyUrl
+      })
+    }
+  } catch (e) {
+    console.log(e)
+    res.render('500', { err: e })
+  }
 });
 
 app.post('/', function(req, res) {
-	var proxyUrl = getcookie(req).toString()
+  var proxyUrl = getcookie(req, 'proxyUrl').toString()
+  var dev = getcookie(req, 'dev')
+  proxyUrl = proxyUrl.replace("https:/", "")
+  proxyUrl = proxyUrl.replace("http:/", "")
 
-	proxyUrl = proxyUrl.replace("https:/", "")
-	proxyUrl = proxyUrl.replace("http:/", "")
+  proxyUrl = `https://${proxyUrl}`
+  try {
 
-	proxyUrl = `https://${proxyUrl}`
-	try {
-	if (!(blockedSites.includes(proxyUrl))) {
-		request(proxyUrl, function(error, response, body) {
+    if (!(blockedSites.includes(proxyUrl))) {
+      request(proxyUrl, function(error, response, body) {
 
-			if (error) {
-				res.send(error)
-			} else {
+        if (error) {
+          res.send(error)
+        } else {
 
-				if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
-					var contentType = response.caseless.get('Content-Type')
-				} else {
-					var contentType = "text/css"
-				}
+          if (!(typeof response.caseless.get('Content-Type') === "undefined")) {
+            var contentType = response.caseless.get('Content-Type')
+          } else {
+            var contentType = "text/css"
+          }
 
-				if (!(typeof contentType === "undefined")) {
-					res.set({
-						'Content-Type': response.caseless.get('Content-Type')
-					})
-				} else {
-					res.set({
-						"Content-Type": 'text/css'
-					})
-				}
+          if (!(typeof contentType === "undefined")) {
+            res.set({
+              'Content-Type': response.caseless.get('Content-Type')
+            })
+          } else {
+            res.set({
+              "Content-Type": 'text/css'
+            })
+          }
 
-				if (contentType.includes("image")) {
-					request({
-						url: url,
-						encoding: null
-					},
-						(err, resp, buffer) => {
-							res.set({
-								"Content-Type": contentType
-							});
+          if (contentType.includes("image")) {
+            request({
+              url: url,
+              encoding: null
+            },
+              (err, resp, buffer) => {
+                res.set({
+                  "Content-Type": contentType
+                });
 
-							res.send(Buffer.from(response.body));
+                res.send(Buffer.from(response.body));
 
-						});
-				} else {
-					res.send(rewriter.write(body, proxyUrl, response.caseless.get('Content-Type')));
-				}
-			}
-		})
-	} else {
-		res.render('blocked', {
-			site: proxyUrl
-		})
-	}} catch (e){
-		res.render('500',{err:e})
-	}
+              });
+          } else {
+            res.send(rewriter.write(body, proxyUrl, response.caseless.get('Content-Type')||undefined));
+          }
+        }
+      })
+    } else {
+      res.render('blocked', {
+        site: proxyUrl
+      })
+    }
+  } catch (e) {
+    res.render('500', { err: e })
+  }
 });
 
 app.get('/', function(req, res) {
-	var devType = req.device.type
-	if (devType === "desktop") {
-		res.sendFile("index.html", {
-			"root": __dirname + "/views"
-		})
-	} else {
-		res.sendFile("mobile.html", {
-			"root": __dirname + "/views"
-		})
-	}
+  var devType = req.device.type
+  if (devType === "desktop") {
+    res.sendFile("index.html", {
+      "root": __dirname + "/views"
+    })
+  } else {
+    res.sendFile("mobile.html", {
+      "root": __dirname + "/views"
+    })
+  }
 })
 
 app.get('/content/*', function(req, res) {
-	let url = req.originalUrl.substr(9, req.originalUrl.length)
-	res.sendFile('siteLib/' + url, {
-		"root": __dirname
-	})
+  let url = req.originalUrl.substr(9, req.originalUrl.length)
+  res.sendFile('siteLib/' + url, {
+    "root": __dirname
+  })
 })
 
 app.get('/games', function(req, res) {
-	res.sendFile('games.html', {
-		"root": __dirname + "/views"
-	})
+  res.sendFile('games.html', {
+    "root": __dirname + "/views"
+  })
 })
 
 app.get('/game/:game', function(req, res) {
-	var game = req.params.game
-	res.sendFile(`./siteLib/games/${game.toLowerCase()}.html`, {
-		"root": __dirname
-	})
+  var game = req.params.game
+  res.sendFile(`./siteLib/games/${game.toLowerCase()}.html`, {
+    "root": __dirname
+  })
 })
 
 app.get('/bookmarks', function(req, res) {
-	res.sendFile('bookmarklets.html', {
-		"root": __dirname + "/views"
-	})
+  res.sendFile('bookmarklets.html', {
+    "root": __dirname + "/views"
+  })
 })
 
 app.get('/cloak', function(req, res) {
-	res.sendFile('tabCloak.html', {
-		"root": __dirname + "/views"
-	})
+  res.sendFile('tabCloak.html', {
+    "root": __dirname + "/views"
+  })
+})
+
+app.get('/youcannotguessthis', function(req, res) {
+  res.sendFile('bypass.html', {
+    "root": __dirname + "/views"
+  })
 })
 
 app.get('/*', function(req, res) {
-	res.sendFile("404.html", {
-		"root": __dirname + "/views"
-	})
+  res.sendFile("404.html", {
+    "root": __dirname + "/views"
+  })
 })
 
 app.listen(port, '0.0.0.0', function() {
-	console.log(`Drift is running on 0.0.0.0:${port}`)
+  console.log(`Drift is running on 0.0.0.0:${port}`)
 })
