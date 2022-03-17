@@ -10,21 +10,40 @@ function validUrl(trUrl) {
   }
 }
 
-/*window.ProxyUrl = location.href.replace('/main/', '').replace(location.origin, '').replace('https://', 'https:/').replace('https:/', 'https://')
+window.ProxyUrl = location.href.replace('/main/', '').replace(location.origin, '').replace('https://', 'https:/').replace('https:/', 'https://')
 console.log(window.ProxyUrl)
 window.Url = new URL('https://'+window.ProxyUrl)
-*/
-function rewriteLogic(url, path) {
+
+var proxyUrl = 'google.com' || getCookie('proxyUrl')
+var proxyPath = '/main' || getCookie('proxypath')
+
+var sourceMap = {
+  "href": proxyUrl
+}
+
+if (location.pathname === "/"){
+  var dlocation = proxyUrl
+  
+} else {
+  var dlocation = location.pathname.replace('/main/','')
+  console.log(location.pathname)
+}
+
+function rewriteUrlLogic(link){
   let rewritten
-  if (url.startsWith('https://')) {
-    rewritten = `/main/${url}`
+  if (link.startsWith('https://')) {
+    rewritten = `${getCookie('proxypath')}/${link}`
   } else {
-    if (url.startsWith('/')) {
-      rewritten = `/main/${path}/${url}`
+    if (link.startsWith('//')){
+      rewritten = `${getCookie('proxypath')}/${link}`
+    } else {
+    if (link.startsWith('/')) {
+      rewritten = `${getCookie('proxypath')}/${dlocation}/${link}`
         
     } else {
-      rewritten = `/main/${path}/${path}/${url}`
+      rewritten = `${getCookie('proxypath')}/${dlocation}${link}`
     }
+  }
   }
   return rewritten
 }
@@ -107,7 +126,7 @@ function update() {
       DRIFTelm.href = DriftHref
     } else {
       if (!(href === null)) {
-        href = rewriteLogic(href,window.ProxyPath);
+        href = rewriteUrlLogic(href);
         DRIFTelm.setAttribute('drift-href', href)
       }
     }
@@ -115,7 +134,7 @@ function update() {
       DRIFTelm.src = DriftSrc
     } else {
       if (!(src === null)) {
-        href = rewriteLogic(src,window.ProxyPath);
+        href = rewriteUrlLogic(src);
         DRIFTelm.setAttribute('drift-src', src)
       }
     }
@@ -123,7 +142,7 @@ function update() {
       DRIFTelm.action = DriftAction
     } else {
       if (!(action === null)) {
-        action = rewriteLogic(action,window.ProxyPath);
+        action = rewriteUrlLogic(action);
         DRIFTelm.setAttribute('drift-action', action)
       }
     }
@@ -148,9 +167,9 @@ setInterval(function(){
   tabCloak()
 }, 1000)
 
-window.XMLHttpRequest.prototype.open = new Proxy(window.XMLHttpRequest.prototype.open, {
+/*window.XMLHttpRequest.prototype.open = new Proxy(window.XMLHttpRequest.prototype.open, {
   apply(t, g, a) {
-    if (a[1]) a[1] = rewriteLogic(a[1], ProxyUrl)
+    if (a[1]) a[1] = rewriteUrlLogic(a[1], ProxyUrl)
     return Reflect.apply(t, g, a)
   }
 });
@@ -160,7 +179,7 @@ window.dlocation = {}
 var attrs = ['href','host','hash','origin','hostname','port','pathname','protocol','search']
 'href host hash origin hostname port pathnam protocol search'
 
-/*document.getElementsByTagName('location').forEach(prop => {
+document.getElementsByTagName('location').forEach(prop => {
   if (attrs.includes())
   Object.defineProperty(window.dlocation, prop, {
     get() {
@@ -168,7 +187,7 @@ var attrs = ['href','host','hash','origin','hostname','port','pathname','protoco
       return url[prop]
     },
     set(val) {
-      return window.location[prop] = window.rewriteLogic(window.Url.href.replace(window.Url[prop], val), ProxyUrl);
+      return window.location[prop] = window.rewriteUrlLogic(window.Url.href.replace(window.Url[prop], val), ProxyUrl);
     }
   })
 });
@@ -176,7 +195,7 @@ var attrs = ['href','host','hash','origin','hostname','port','pathname','protoco
 ['assign','replace','toString','reload'].forEach(prop => {
   Object.defineProperty(window.dlocation, prop, {
     get() {
-      return new Function('arg', `return window.location.${prop}(arg?${prop!=='reload'&&prop!=='toString'?'rewriteLogic(arg, ProxyUrl)':'arg'}:null)`)
+      return new Function('arg', `return window.location.${prop}(arg?${prop!=='reload'&&prop!=='toString'?'rewriteUrlLogic(arg, ProxyUrl)':'arg'}:null)`)
     },
     set(val) {
       return val
@@ -185,8 +204,6 @@ var attrs = ['href','host','hash','origin','hostname','port','pathname','protoco
 })
 
 document.dlocation = dlocation
-
-//location prox*/
 
 document.getElementsByTagName('location').forEach(prop => {
   let attr;
@@ -197,6 +214,6 @@ document.getElementsByTagName('location').forEach(prop => {
     }})
   alert(attr)
   if (attr){
-    location.setAttribute(attr,rewriteLogic(window.Url.href,ProxyUrl))
+    location.setAttribute(attr,rewriteUrlLogic(window.Url.href,ProxyUrl))
   }
-})
+})*/

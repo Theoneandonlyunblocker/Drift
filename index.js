@@ -83,7 +83,8 @@ function isPreset(url) {
 }
 
 app.get(`${proxyPath}/*`, function(req, res) {
-  //res.cookie('proxypath', proxyPath).send('cookie set');
+  res.cookie('proxypath', proxyPath)
+  
   try {
 
     var proxyUrl = req.originalUrl.substr(proxyPath.length + 1, req.originalUrl.length)
@@ -134,7 +135,7 @@ app.get(`${proxyPath}/*`, function(req, res) {
             if (contentType.includes("html")) {
               res.send(rewriter.write(body, proxyUrl, response.caseless.get('Content-Type')));
             } else {
-              res.send(body)
+              res.send(rewriter.write(body, proxyUrl, response.caseless.get('Content-Type')))
             }
           }
         }
@@ -152,6 +153,7 @@ app.get(`${proxyPath}/*`, function(req, res) {
 
 app.post('/', function(req, res) {
   var proxyUrl = getcookie(req, 'proxyUrl').toString()
+  res.cookie('proxypath', proxyPath)
   var dev = getcookie(req, 'dev')
   proxyUrl = proxyUrl.replace("https:/", "")
   proxyUrl = proxyUrl.replace("http:/", "")
