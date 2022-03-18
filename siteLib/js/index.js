@@ -1,3 +1,26 @@
+function xor(key,text){
+  var result = ""
+  for (let i = 0; i < text.length; i++){
+    var c = text.charCodeAt(i)
+    var k = key.charCodeAt(i*key.length)
+    result += String.fromCharCode(c ^ k)
+    
+  }
+  return result
+}
+
+function encodeString(text){
+  var enc = xor('pass', '-https://google.com').toString('base64')
+  enc = xor('pass', '-https://google.com').toString('base64').slice(0,enc.length)
+  return enc
+}
+
+function decodeString(text){
+  var dec = xor('pass', text).toString('base64')
+  return dec.re
+}
+
+console.log(encodeString('https://google.com'),decodeString(encodeString('https://google.com')))
 let c = init("canvas"),
   w = (canvas.width = window.innerWidth),
   h = (canvas.height = window.innerHeight);
@@ -172,6 +195,8 @@ function proxy() {
   inputUrl = inputUrl.replace("http://", "")
   inputUrl.replace(' ', '+')
 
+  document.cookie = 'proxyPath=/main'
+  
   if (isValidURL(inputUrl)) {
     document.cookie = `proxyUrl=${inputUrl}`
   } else {

@@ -7,6 +7,7 @@ var device = require('express-device');
 var hbs = require('hbs')
 const rewriter = require('./lib/rewriter.js')
 var config = require('./app.json')
+const fakeUa = require('fake-useragent');
 
 app.use(device.capture());
 app.set('view engine', 'hbs');
@@ -95,12 +96,10 @@ app.get(`${proxyPath}/*`, function(req, res) {
     proxyUrl = `https://${proxyUrl}`
 
     if (!(blockedSites.includes(proxyUrl))) {
-      const options = {
-        url: proxyUrl,
-        headers: 'user-agent: Mozilla Firefox Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:53.0) Gecko/20100101 Firefox/53.0',
-        method: 'GET'
-      };
-      request(options, function(error, response, body) {
+      var userAgent = fakeUa()
+      var headers = { "User-Agent": userAgent }
+      
+      request({ url: proxyUrl, headers: headers }, function(error, response, body) {
         if (error) {
           res.send(error.toString())
         } else {
@@ -162,7 +161,10 @@ app.post('/', function(req, res) {
   try {
 
     if (!(blockedSites.includes(proxyUrl))) {
-      request(proxyUrl, function(error, response, body) {
+      var userAgent = fakeUa()
+      var headers = { "User-Agent": userAgent }
+      
+      request({ url: proxyUrl, headers: headers }, function(error, response, body) {
 
         if (error) {
           res.send(error)

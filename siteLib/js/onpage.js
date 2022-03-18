@@ -1,5 +1,16 @@
 var updatedCheck = false
 
+function getCookie(cName) {
+  const name = cName + "=";
+  const cDecoded = decodeURIComponent(document.cookie); //to be careful
+  const cArr = cDecoded.split('; ');
+  let res;
+  cArr.forEach(val => {
+    if (val.indexOf(name) === 0) res = val.substring(name.length);
+  })
+  return res
+}
+
 function validUrl(trUrl) {
   var regexpression = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
 
@@ -10,44 +21,48 @@ function validUrl(trUrl) {
   }
 }
 
-window.ProxyUrl = location.href.replace('/main/', '').replace(location.origin, '').replace('https://', 'https:/').replace('https:/', 'https://')
+//window.ProxyUrl = location.href.replace('/main/', '').replace(location.origin, '').replace('https://', 'https:/').replace('https:/', 'https://')
 console.log(window.ProxyUrl)
-window.Url = new URL('https://'+window.ProxyUrl)
 
-var proxyUrl = 'google.com' || getCookie('proxyUrl')
-var proxyPath = '/main' || getCookie('proxypath')
-
-var sourceMap = {
-  "href": proxyUrl
-}
-
-if (location.pathname === "/"){
-  var dlocation = proxyUrl
-  
+var proxyUrl = getCookie('proxyUrl')
+if (proxyUrl.startsWith('https://') || proxyUrl.startsWith('http://')) {
+  var formatedUrl = new URL(proxyUrl)
 } else {
-  var dlocation = location.pathname.replace('/main/','')
+  var formatedUrl = new URL('https://' + proxyUrl)
+}
+var proxyPath = getCookie('proxypath')
+
+sourceMap = formatedUrl
+
+if (location.pathname === "/") {
+  var dlocation = proxyUrl
+
+} else {
+  var dlocation = location.pathname.replace('/main/', '')
   console.log(location.pathname)
 }
 
-function rewriteUrlLogic(link){
+function rewriteUrlLogic(link) {
   let rewritten
   if (link.startsWith('https://')) {
     rewritten = `${getCookie('proxypath')}/${link}`
   } else {
-    if (link.startsWith('//')){
+    if (link.startsWith('//')) {
       rewritten = `${getCookie('proxypath')}/${link}`
     } else {
-    if (link.startsWith('/')) {
-      rewritten = `${getCookie('proxypath')}/${dlocation}/${link}`
-        
-    } else {
-      rewritten = `${getCookie('proxypath')}/${dlocation}${link}`
+      if (link.startsWith('/')) {
+        rewritten = `${getCookie('proxypath')}/${dlocation}/${link}`
+
+      } else {
+        rewritten = `${getCookie('proxypath')}/${dlocation}${link}`
+      }
     }
-  }
   }
   return rewritten
 }
-//This is not actually being used so I'ma just go do that
+
+console.log(rewriteUrlLogic('Build/AmongShooter_Monetization.loader.js'))
+
 function tabCloak() {
   var favicon = getCookie('faviconCloak')
   var titleCloal = getCookie('titleCloak')
@@ -73,17 +88,6 @@ function favChange(link) {
     $favicon.href = link
     document.head.appendChild($favicon)
   }
-}
-
-function getCookie(cName) {
-  const name = cName + "=";
-  const cDecoded = decodeURIComponent(document.cookie); //to be careful
-  const cArr = cDecoded.split('; ');
-  let res;
-  cArr.forEach(val => {
-    if (val.indexOf(name) === 0) res = val.substring(name.length);
-  })
-  return res
 }
 
 var observeDOM = (function() {
@@ -122,6 +126,8 @@ function update() {
     var src = DRIFTelm.getAttribute('src')
     var action = DRIFTelm.getAttribute('action')
 
+    DRIFTelm.onchange = "update()"
+
     if (!(DriftHref === null)) {
       DRIFTelm.href = DriftHref
     } else {
@@ -130,12 +136,12 @@ function update() {
         DRIFTelm.setAttribute('drift-href', href)
       }
     }
+
     if (!(DriftSrc === null)) {
       DRIFTelm.src = DriftSrc
     } else {
       if (!(src === null)) {
-        href = rewriteUrlLogic(src);
-        DRIFTelm.setAttribute('drift-src', src)
+        DRIFTelm.setAttribute('drift-src', rewriteUrlLogic(src))
       }
     }
     if (!(DriftAction === null)) {
@@ -147,7 +153,7 @@ function update() {
       }
     }
 
-    
+
   }
   tabCloak()
 }
@@ -156,16 +162,11 @@ tabCloak()
 update()
 
 setInterval(function() {
-  observeDOM(document, function() {
-    if (updatedCheck === "true") {
-      update()
-    }
+  observeDOM(function() {
+    update()
+    tabCloak()
   })
-}, 5000)
-
-setInterval(function(){
-  tabCloak()
-}, 1000)
+})
 
 /*window.XMLHttpRequest.prototype.open = new Proxy(window.XMLHttpRequest.prototype.open, {
   apply(t, g, a) {
