@@ -38,7 +38,7 @@ function proxy(req, res, proxyUrl) {
           "Content-Type": 'text/css'
         })
       }
-
+      console.log(contentType)
       if (contentType.includes("image")) {
         request({
           url: url,
@@ -94,7 +94,9 @@ app.get(`${proxyPath}/*`, function(req, res) {
     proxyUrl = proxyUrl.replace("http:/", "")
 
     proxyUrl = `https://${proxyUrl}`
-
+    res.cookie('proxypath', proxyPath)
+    var dev = getcookie(req, 'dev')
+    
     if (!(blockedSites.includes(proxyUrl))) {
       var userAgent = fakeUa()
       var headers = { "User-Agent": userAgent }
@@ -122,13 +124,21 @@ app.get(`${proxyPath}/*`, function(req, res) {
           }
 
           if (contentType.includes("image")) {
+
             request({
-              url: url,
+              url: proxyUrl,
+              headers: {"User-Agent":fakeUa()},
               encoding: null
             },
               (err, respond, buffer) => {
                 res.setHeader('Content-Type', contentType)
-                res.send(Buffer.from(response.body))
+                if (err){
+                  console.log(err)
+                  res.send(err)
+                } else {
+                  
+                  res.send(Buffer.from(respond.body))
+                }
               });
           } else {
             if (contentType.includes("html")) {

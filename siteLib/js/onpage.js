@@ -1,4 +1,4 @@
-var updatedCheck = false
+const updatedCheck = false
 
 function getCookie(cName) {
   const name = cName + "=";
@@ -11,6 +11,24 @@ function getCookie(cName) {
   return res
 }
 
+function RewriteSrcset(sample, dlocation) {
+  return sample.split(',').map(e => {
+    return (e.split(' ').map(a => {
+      if (a.startsWith('http') || (a.startsWith('/') && !a.startsWith(config.prefix))) {
+        var url = rewriteUrlLogic(a, dlocation)
+        if (url.startsWith('/')) {
+          url = url.replaceAt(
+            config.prefix.length + dlocation.length + 2
+            , ''
+          )
+        }
+
+      }
+      return a.replace(a, (url || a))
+    }).join(' '))
+  }).join(',')
+}
+
 function validUrl(trUrl) {
   var regexpression = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
 
@@ -20,6 +38,7 @@ function validUrl(trUrl) {
     return false
   }
 }
+
 
 //window.ProxyUrl = location.href.replace('/main/', '').replace(location.origin, '').replace('https://', 'https:/').replace('https:/', 'https://')
 console.log(window.ProxyUrl)
@@ -60,8 +79,6 @@ function rewriteUrlLogic(link) {
   }
   return rewritten
 }
-
-console.log(rewriteUrlLogic('Build/AmongShooter_Monetization.loader.js'))
 
 function tabCloak() {
   var favicon = getCookie('faviconCloak')
@@ -122,12 +139,23 @@ function update() {
     var DriftHref = DRIFTelm.getAttribute('drift-href')
     var DriftSrc = DRIFTelm.getAttribute('drift-src')
     var DriftAction = DRIFTelm.getAttribute('drift-action')
+    var DriftSrcset = DRIFTelm.getAttribute('drift-srcset')
     var href = DRIFTelm.getAttribute('href')
     var src = DRIFTelm.getAttribute('src')
     var action = DRIFTelm.getAttribute('action')
-
+    var srcset = DRIFTelm.getAttribute('srcset')
+    
     DRIFTelm.onchange = "update()"
 
+    if (!(DriftSrcset === null)) {
+      DRIFTelm.srcset = DriftHref
+    } else {
+      if (!(srcset === null)) {
+        srcset = RewriteSrcset(srcset,proxyPath);
+        DRIFTelm.setAttribute('drift-srcset', srcset)
+      }
+    }
+    
     if (!(DriftHref === null)) {
       DRIFTelm.href = DriftHref
     } else {
@@ -142,6 +170,9 @@ function update() {
     } else {
       if (!(src === null)) {
         DRIFTelm.setAttribute('drift-src', rewriteUrlLogic(src))
+        if (DRIFTelm.getAttribute('srcset')){
+          DRIFTelm.srcset = rewriteUrlLogic("/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png 1x, /images/branding/googlelogo/2x/googlelogo_color_272x92dp.png 2x")
+        }
       }
     }
     if (!(DriftAction === null)) {
@@ -166,7 +197,7 @@ setInterval(function() {
     update()
     tabCloak()
   })
-})
+},1000)
 
 /*window.XMLHttpRequest.prototype.open = new Proxy(window.XMLHttpRequest.prototype.open, {
   apply(t, g, a) {
