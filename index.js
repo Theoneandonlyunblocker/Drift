@@ -237,6 +237,18 @@ app.get('/', function(req, res) {
   }
 })
 
+app.get('/s',function(req,res){
+  var proxyUrl = getcookie(req, 'proxyUrl').toString() || 'google.com'
+  res.cookie('proxypath', proxyPath)
+  
+  proxyUrl = proxyUrl.replace("https:/", "")
+  proxyUrl = proxyUrl.replace("http:/", "")
+
+  proxyUrl = `https://${proxyUrl}`
+
+  res.render('stealth',{proxyUrl:'/main/'+proxyUrl})
+})
+
 app.get('/content/*', function(req, res) {
   let url = req.originalUrl.substr(9, req.originalUrl.length)
   res.sendFile('siteLib/' + url, {

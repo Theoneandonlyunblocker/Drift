@@ -200,7 +200,7 @@ function proxy() {
   if (isValidURL(inputUrl)) {
     document.cookie = `proxyUrl=${inputUrl}`
   } else {
-    document.cookie = `proxyUrl=https://www.google.com/search?q=${inputUrl}`
+    document.cookie = `proxyUrl=www.google.com/search?q=${inputUrl}`
   }
   console.log(document.cookie)
 
