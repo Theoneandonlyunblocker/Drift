@@ -39,9 +39,10 @@ function validUrl(trUrl) {
   }
 }
 
+//you would have to define a no object to make window.proxyUrl work
 
 //window.ProxyUrl = location.href.replace('/main/', '').replace(location.origin, '').replace('https://', 'https:/').replace('https:/', 'https://')
-console.log(window.ProxyUrl)
+
 
 var proxyUrl = getCookie('proxyUrl')
 if (proxyUrl.startsWith('https://') || proxyUrl.startsWith('http://')) {

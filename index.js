@@ -98,7 +98,7 @@ app.get(`${proxyPath}/*`, function(req, res) {
     var dev = getcookie(req, 'dev')
     
     if (!(blockedSites.includes(proxyUrl))) {
-      var userAgent = fakeUa()
+      var userAgent = "Mozilla/5.0 (X11; Linux x86_64; rv:7.0) Gecko/20101111 Firefox/85.02"
       var headers = { "User-Agent": userAgent }
       
       request({ url: proxyUrl, headers: headers }, function(error, response, body) {
@@ -160,7 +160,7 @@ app.get(`${proxyPath}/*`, function(req, res) {
   }
 });
 
-app.post('/', function(req, res) {
+/*app.post('/', function(req, res) {
   var proxyUrl = getcookie(req, 'proxyUrl').toString()
   res.cookie('proxypath', proxyPath)
   var dev = getcookie(req, 'dev')
@@ -222,7 +222,7 @@ app.post('/', function(req, res) {
   } catch (e) {
     res.render('500', { err: e })
   }
-});
+});*/
 
 app.get('/', function(req, res) {
   var devType = req.device.type
@@ -261,7 +261,6 @@ app.get('/games', function(req, res) {
     "root": __dirname + "/views"
   })
 })
-
 app.get('/game/:game', function(req, res) {
   var game = req.params.game
   res.sendFile(`./siteLib/games/${game.toLowerCase()}.html`, {
