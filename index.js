@@ -241,8 +241,8 @@ app.get('/s',function(req,res){
   var proxyUrl = getcookie(req, 'proxyUrl').toString() || 'google.com'
   res.cookie('proxypath', proxyPath)
   
-  proxyUrl = proxyUrl.replace("https:/", "")
-  proxyUrl = proxyUrl.replace("http:/", "")
+  proxyUrl = proxyUrl.replace("https://", "")
+  proxyUrl = proxyUrl.replace("http://", "")
 
   proxyUrl = `https://${proxyUrl}`
 
