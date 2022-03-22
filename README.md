@@ -1,8 +1,11 @@
 ### **Drift Web Proxy**
 
 > My first (successful) web proxy!
-> To Use Drift With Your Own Stuff
-> `const Drift = require('drift-npm')
+> To Use Drift With Your Websites Use The Code Here
+
+
+
+    const Drift = require('drift-npm')
     var express = require('express')
     var app = express()
     
