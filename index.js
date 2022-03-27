@@ -2,26 +2,40 @@ var url = require('url');
 var fs = require('fs')
 var express = require('express')
 var app = express()
+var cookieParser = require('cookie-parser')
 var device = require('express-device');
 var hbs = require('hbs')
-const drift = require('drift-npm')
+const drift = require('./siteLib/drift/index.js')
+const experimental = require('./siteLib/drift/proxy.js')
+
+var analytics = require('@enderkingj/analytics');
+
+app.use((req, res, next) => {
+  if (analytics(req, res)==false) return next();
+  else {
+    
+  };
+}) // there we go basic stuff set up
 
 app.use(device.capture());
+app.use(cookieParser());
 app.set('view engine', 'hbs');
-
+//console.log(drift.contentSrc('onpage.js').toString())
 const port = 8080
 
-function getcookie(req, name) {
-const parseCookie = str =>
-   str
-    .split(';')
-    .map(v => v.split('='))
-    .reduce((acc, v) => {
-      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-	 
-      return acc;
-    }, {});
-}
+const getcookie = (req,cname) => {
+  // We extract the raw cookies from the request headers
+  const rawCookies = req.headers.cookie.split('; ');
+
+  const parsedCookies = {};
+  rawCookies.forEach(rawCookie => {
+    const parsedCookie = rawCookie.split('=');
+    
+    parsedCookies[parsedCookie[0]] = parsedCookie[1];
+  });
+
+  return parsedCookies.proxyURL;
+};
 
 app.get('/', function(req, res) {
 
@@ -31,25 +45,14 @@ app.get('/', function(req, res) {
 
 })
 
-app.get("/lesson/*",function(req,res){
-  drift.server(req,res);
-})
-
-app.get("/drift/:file",function(req,res){
-  console.log(req.params.file)
-  drift.contentSrc(req.params.file)
+app.get('/main/*',function(req,res){
+  experimental.server(req,res)
 })
 
 app.get('/s', function(req, res) {
-  var proxyUrl = getcookie(req, 'proxyUrl') || 'google.com'
-  res.cookie('proxypath', '/lesson')
-
-  proxyUrl = proxyUrl.replace("https://", "")
-  proxyUrl = proxyUrl.replace("http://", "")
-
-  proxyUrl = `https://${proxyUrl}`
-
-  res.render('stealth', { proxyUrl: '/lesson/' + proxyUrl })
+  res.sendFile('stealth.html', {
+    "root": __dirname+"/views"
+  })
 })
 
 app.get('/content/*', function(req, res) {

@@ -190,19 +190,18 @@ function isValidURL(str) {
 }
 
 function proxy() {
-  var inputUrl = $("#proxyUrl").val();
+  var inputUrl = document.getElementById('proxyUrl').value;
   inputUrl = inputUrl.replace("https://", "")
   inputUrl = inputUrl.replace("http://", "")
-  inputUrl.replace(' ', '+')
 
   document.cookie = 'proxyPath=/main'
+  inputUrl = decodeURI(inputUrl)
   
   if (isValidURL(inputUrl)) {
-    document.cookie = `proxyUrl=${inputUrl}`
+    document.cookie = `proxyURL=/main/${inputUrl}`
   } else {
-    document.cookie = `proxyUrl=www.google.com/search?q=${inputUrl}`
+    document.cookie = `proxyURL=/main/www.google.com/search?q=${inputUrl}`
   }
-  console.log(document.cookie)
 
 }
 
