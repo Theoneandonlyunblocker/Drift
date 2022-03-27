@@ -1,6 +1,25 @@
+### **Drift Web Proxy**
 
-<h1>Drift</h1>
-A proxy that will [hopefully] get me recognised on the TN discord server 
+> My first (successful) web proxy!
+> To Use Drift With Your Websites Use The Code Here
 
-<h1>Technical stuff</h1>
-  Not here yet :p
+
+
+    const Drift = require('drift-npm')
+    var express = require('express')
+    var app = express()
+    
+    //This has to be /main/
+    app.get("/main/*",function(req,res){
+        drift.server(req,res);
+      })
+
+    app.get("/drift/:file",function(req,res){
+      console.log(req.params.file)
+      drift.contentSrc(req.params.file)
+    })
+    
+    app.listen(8080,function(){
+          console.log("Running")
+    }
+    
