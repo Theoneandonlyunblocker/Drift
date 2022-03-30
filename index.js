@@ -38,11 +38,16 @@ const getcookie = (req,cname) => {
 };
 
 app.get('/', function(req, res) {
-
   res.sendFile("index.html", {
     "root": __dirname + "/views"
   })
 
+})
+
+app.get('/ab',function(req,res){
+  res.sendFile("ab.html", {
+    "root": __dirname + "/views"
+  })
 })
 
 app.get('/main/*',function(req,res){
@@ -57,6 +62,7 @@ app.get('/s', function(req, res) {
 
 app.get('/content/*', function(req, res) {
   let url = req.originalUrl.substr(9, req.originalUrl.length)
+  res.set('Service-Worker-Allowed','/main')
   res.sendFile('siteLib/' + url, {
     "root": __dirname
   })

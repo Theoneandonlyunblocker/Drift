@@ -1,23 +1,24 @@
 navigator.serviceWorker.getRegistrations().then(function(registrations) {
-  for(let registration of registrations) {
-   registration.unregister()
- } })
-
+  for (let registration of registrations) {
+    registration.unregister()
+  }
+})
+config = { "prefix": "/main" }
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/worker.js', {
-            scope: '/main'
-          })
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/content/drift/lib/service-worker.js', {
+      scope: '/main'
+    })
       .then((registration) => {
         console.log('Service Worker registration completed with scope: ',
           registration.scope)
       }, (err) => {
         console.log('Service Worker registration failed', err)
       })
-    })
-  } else {
-    console.log('Service Workers not supported')
-  }
+  })
+} else {
+  console.log('Service Workers not supported')
+}
 
 const updatedCheck = false
 
@@ -93,35 +94,35 @@ if (location.pathname === "/") {
 }
 
 function redirectDrift(url) {
-  location.replace(rewriteUrlLogic(url))
+  location.href = rewriteUrlLogic(url)
 }
 
 function rewriteUrlLogic(link) {
   let rewritten
   if (link.startsWith("https://") || link.startsWith("http://") || link.startsWith("//")) {
     if (link.startsWith('//')) {
-      rewritten = `${proxyPath}/` + 'https:' + link
+      rewritten = `/main/` + 'https:' + link
     } else {
       if (link.endsWith('/')) {
-        rewritten = `${proxyPath}/${link}`
+        rewritten = `${config.prefix}/${link}`
       } else {
-        rewritten = `${proxyPath}/${link}/`
+        rewritten = `${config.prefix}/${link}/`
       }
     }
   } else {
     if (link.startsWith('//')) {
-      rewritten = `${proxyPath}/${link}`
+      rewritten = `${config.prefix}/${link}`
     } else {
       if (link === "/") {
-        rewritten = `${proxyPath}/${dlocation}`
+        rewritten = `${config.prefix}/${dlocation}`
       } else {
         if (dlocation.endsWith('/')) {
           dlocation = dlocation.substring(0, dlocation.length - 1)
         }
         if (link.startsWith('/')) {
-          rewritten = `${proxyPath}/${dlocation}${link}`
+          rewritten = `${config.prefix}/${dlocation}${link}`
         } else {
-          rewritten = `${proxyPath}/${dlocation}/${link}`
+          rewritten = `${config.prefix}/${dlocation}/${link}`
         }
       }
     }
@@ -178,15 +179,18 @@ var observeDOM = (function() {
   }
 })()
 
-function locationUpdate(){
-  location.pathname = rewriteUrlLogic(sourceMap.hostname,sourceMap.hostname)
+const locationUpdate = {
+	get(target, prop, receiver) {
+		window.alert(target)
+		return ''
+	}
 }
+
+var locationUpdater = new Proxy(sourceMap,locationUpdate)
 
 function update() {
   var DRIFTelements = document.querySelectorAll("*")
-
-  console.log(DRIFTelements.length)
-
+	
   for (let i = 0; i < DRIFTelements.length; i++) {
     var DRIFTelm = DRIFTelements[i]
     var checked = DRIFTelm.getAttribute('drift-checked')
@@ -199,7 +203,6 @@ function update() {
     DRIFTelm.onchange = "update()"
 
     if (checked == 0 || checked == null) {
-      console.log("Element Has Been Checked")
       if (!(srcset === null)) {
         srcset = RewriteSrcset(srcset, proxyPath)
 
@@ -237,17 +240,19 @@ function update() {
   tabCloak()
 }
 
-tabCloak()
-update()
-
-setInterval(function() {
-  update()
+window.onload = function() {
   tabCloak()
-}, 0000)
+  update()
 
+  setInterval(function() {
+    update()
+    tabCloak()
+  }, 0000)
+}
 window.onbeforeunload = function() {
   navigator.serviceWorker.getRegistrations().then(function(registrations) { for (let registration of registrations) { registration.unregister(); } });
 }
+
 /*
 window.dlocation = {}
 

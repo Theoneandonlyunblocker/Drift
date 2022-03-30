@@ -59,12 +59,14 @@ self.addEventListener('activate', function (event) {
 self.addEventListener('fetch', (event) => {
   const eventUrl = new URL(event.request.url);
   const pathAndQuery = eventUrl.pathname + eventUrl.search;
-  //console.log(location.protocol+"//"+location.hostname)
-  if (!(eventUrl.href.startsWith(location.protocol+"//"+location.hostname))) {
+  
+  console.log(eventUrl.host)
+  if (eventUrl.host.startsWith(config.prefix) || eventUrl.host.startsWith('ant-network')){} else {
     event.respondWith(
       fetch(
-        rewriteUrlLogic(eventUrl.href,proxyUrl)
+        "https://ant-network.net"+rewriteUrlLogic(eventUrl.href,proxyUrl)
       )
     )
   }
+
 })

@@ -18,30 +18,32 @@ String.prototype.replaceAt = function (index, replacement) {
 function rewriteUrlLogic(link, dlocation) {
   let rewritten
   if (link.startsWith("https://") || link.startsWith("http://") || link.startsWith("//")) {
-    link = link.replace("https://", "")
-    link = link.replace("http://", "")
-    link = link.replace("//", "")
-    
-    if (link.toString().charAt(link.length-1)=='/'){
-      rewritten = `${config.prefix}/${link}`
-    } else {
-      rewritten = `${config.prefix}/${link}/`
-    }
-
-  } else {
-    if (link.startsWith('//')) {
-      rewritten = `${config.prefix}/${link}`
-    } else {
-      if (link === "/") {
-        rewritten = `${config.prefix}/${dlocation}`
+      if (link.startsWith('//')) {
+          rewritten = `${config.prefix}/` + 'https:' + link
       } else {
-        if (link.startsWith('/')) {
-          rewritten = `${config.prefix}/${dlocation}${link}`
-        } else {
-          rewritten = `${config.prefix}/${dlocation}/${link}`
-        }
+          if (link.endsWith('/')) {
+              rewritten = `${config.prefix}/${link}`
+          } else {
+              rewritten = `${config.prefix}/${link}/`
+          }
       }
-    }
+  } else {
+      if (link.startsWith('//')) {
+          rewritten = `${config.prefix}/${link}`
+      } else {
+          if (link === "/") {
+              rewritten = `${config.prefix}/${dlocation}`
+          } else {
+              if (dlocation.endsWith('/')) {
+                  dlocation = dlocation.substring(0, dlocation.length - 1)
+              }
+              if (link.startsWith('/')) {
+                  rewritten = `${config.prefix}/${dlocation}${link}`
+              } else {
+                  rewritten = `${config.prefix}/${dlocation}/${link}`
+              }
+          }
+      }
   }
   return rewritten
 }
@@ -80,19 +82,6 @@ function write(html, url, content) {
       var poster = elm.poster
       var elmClass = elm.getAttribute('class')
       var tagType = elm.nodeName
-
-      if (tagType === 'SCRIPT'){
-        var script = elm.innerText
-        
-        if (typeof src === "undefined"){
-          let res
-          res = script.replace(/window.location/g, 'sourceMap')
-          res = res.replace(/document.location/g, 'sourceMap')
-          res = res.replace(/location.replace/g, 'redirectDrift')
-          res = res.replace(/location/g, 'sourceMap')
-          elm.innerText = res
-        }
-      }
       
       if (elmClass === "g-recaptcha") {
         elm.setAttribute('data-sitekey', '6LdCNqIeAAAAAGF6lgjXwiEoUr5O-suYEiaGju59')
@@ -140,7 +129,13 @@ function write(html, url, content) {
 
     dom.window.document.head.innerHTML = `<script src='/content/drift/lib/onpage.js' drift-checked='1'></script>` + dom.window.document.head.innerHTML
 
-    return dom.serialize()
+		let res
+		res = dom.serialize().replace(/window.location/g, 'sourceMap')
+    res = res.replace(/document.location/g, 'sourceMap')
+    res = res.replace(/location.replace/g, 'redirectDrift')
+    res = res.replace(/location/g, 'sourceMap') 
+		
+    return res
   } else {
     if (content.includes('javascript')) {
       let js

@@ -31,9 +31,16 @@ async function server(req, res) {
 
     proxyUrl = proxyUrl.toString().replace("https:/", "")
     proxyUrl = proxyUrl.toString().replace("http:/", "")
+    proxyUrl = proxyUrl.toString().replace("https://", "")
+    proxyUrl = proxyUrl.toString().replace("http://", "")
 
+    
+    if (proxyUrl.indexOf('main/')==0){
+      console.log(proxyUrl,proxyUrl.split('main/')[1])
+      proxyUrl = proxyUrl.split('main/')[1]
+    }
     proxyUrl = `https://${proxyUrl}`
-
+    
     //console.log(proxyUrl)
     
     res.cookie('proxypath', proxyPath)
@@ -77,8 +84,8 @@ async function server(req, res) {
       };
     } catch (e){
       res.send(`<h1>Error For ${proxyUrl}</h1><br><p>${e}</p>`)
-      console.log(e)
-      console.log(proxyUrl)
+      //console.log(e)
+      //console.log(proxyUrl)
     }
   }
 
