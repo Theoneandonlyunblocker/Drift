@@ -36,7 +36,6 @@ async function server(req, res) {
 
     
     if (proxyUrl.indexOf('main/')==0){
-      console.log(proxyUrl,proxyUrl.split('main/')[1])
       proxyUrl = proxyUrl.split('main/')[1]
     }
     proxyUrl = `https://${proxyUrl}`

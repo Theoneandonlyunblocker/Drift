@@ -7,8 +7,9 @@ var device = require('express-device');
 var hbs = require('hbs')
 const drift = require('./siteLib/drift/index.js')
 const experimental = require('./siteLib/drift/proxy.js')
-
+const blocker = require('./siteLib/js/blocker.js')
 var analytics = require('@enderkingj/analytics');
+var comipleGames = require('./siteLib/js/gameCompiler.js')
 
 app.use((req, res, next) => {
   if (analytics(req, res)==false) return next();
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
   };
 }) // there we go basic stuff set up
 
+app.use(blocker.filter)
 app.use(device.capture());
 app.use(cookieParser());
 app.set('view engine', 'hbs');

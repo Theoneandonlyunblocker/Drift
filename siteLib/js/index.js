@@ -20,7 +20,6 @@ function decodeString(text){
   return dec.re
 }
 
-console.log(encodeString('https://google.com'),decodeString(encodeString('https://google.com')))
 let c = init("canvas"),
   w = (canvas.width = window.innerWidth),
   h = (canvas.height = window.innerHeight);
@@ -196,11 +195,19 @@ function proxy() {
 
   document.cookie = 'proxyPath=/main'
   inputUrl = decodeURI(inputUrl)
-  
+  const engines = {
+	 google: 'www.google.com/search?q=',
+	 youtube: 'www.youtube.com/results?search_query=',
+	 bing: 'bing.com/search?q=',
+	 brave: 'search.brave.com/search?q=',
+	 twitter: 'twitter.com/search?q=',
+	 reddit: 'www.reddit.com/search/?q='
+	};
+	var action = '/main/'+engines.google+inputUrl
   if (isValidURL(inputUrl)) {
-    document.cookie = `proxyURL=/main/${inputUrl}`
+    document.cookie = 'proxyURL='+'/main/'+inputUrl
   } else {
-    document.cookie = `proxyURL=/main/www.google.com/search?q=${inputUrl}`
+    document.cookie = 'proxyURL='+action
   }
 
 }
