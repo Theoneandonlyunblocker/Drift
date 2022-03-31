@@ -1,4 +1,4 @@
-const BlockedSites = ['accounts.google.com','pornhub.com','rule34.xxx','netflix.com', 'xvideos.com','xnxx.com','sex.com']
+const BlockedSites = []
 
 function filter(req,res,next){
 	var url = req.originalUrl.split('/main')
