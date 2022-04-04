@@ -8,7 +8,7 @@ function parseHtml() {
 		games.push(name)
 	})
 	
-	var gameTml = "amongus"
+	var gameTml = ""
 	for (var i = 0; i < games.length; i++) {
 		var game = games[i]
 		gameTml = gameTml + `<div class="game"><a href='/game/${game}'><img src="/content/images/${game}.jpeg" width="100px" height="100px" style="text-align: center;"></img><br></br><a>${game}</a>

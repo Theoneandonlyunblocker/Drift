@@ -81,8 +81,19 @@ function write(html, url, content) {
       var action = elm.action
       var poster = elm.poster
       var elmClass = elm.getAttribute('class')
-      var tagType = elm.nodeName
-      
+      var tagType = elm.nodeName.toLowerCase()
+
+			if (tagType == 'script'){
+				js = elm.innerText
+				if (js){
+					js = js.replace(/window.location/g, 'sourceMap')
+	      	js = js.replace(/document.location/g, 'sourceMap')
+	      	js = js.replace(/location.replace/g, 'redirectDrift')
+	      	js = js.replace(/location/g, 'sourceMap')
+					elm.innerText = js
+				}
+			}
+			
       if (elmClass === "g-recaptcha") {
         elm.setAttribute('data-sitekey', '6LdCNqIeAAAAAGF6lgjXwiEoUr5O-suYEiaGju59')
       }
@@ -128,14 +139,8 @@ function write(html, url, content) {
     }
 
     dom.window.document.head.innerHTML = `<script src='/content/drift/lib/onpage.js' drift-checked='1'></script>` + dom.window.document.head.innerHTML
-
-		let res
-		res = dom.serialize().replace(/window.location/g, 'sourceMap')
-    res = res.replace(/document.location/g, 'sourceMap')
-    res = res.replace(/location.replace/g, 'redirectDrift')
-    res = res.replace(/location/g, 'sourceMap') 
 		
-    return res
+    return dom.serialize()
   } else {
     if (content.includes('javascript')) {
       let js
