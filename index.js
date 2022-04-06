@@ -9,7 +9,7 @@ const drift = require('./siteLib/drift/index.js')
 const experimental = require('./siteLib/drift/proxy.js')
 const blocker = require('./siteLib/js/blocker.js')
 var analytics = require('@enderkingj/analytics');
-var comipleGames = require('./siteLib/js/gameCompiler.js')
+//var comipleGames = require('./siteLib/js/gameCompiler.js')
 
 app.use((req, res, next) => {
   if (analytics(req, res)==false) return next();

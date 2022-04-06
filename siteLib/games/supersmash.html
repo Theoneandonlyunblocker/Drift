@@ -1,33 +1,1949 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="/content/css/index.css">
-    <script src="/content/drift/lib/onpage.js""></script>
-    <script>
-			var game = window.location.pathname.replace('/game/','')
-			document.title = `Play ${game} Online`
-      tabCloak()
-		</script>
-		<style>
-      body, html {
-        margin: 0;
-        height: 100%;
-        overflow: hidden
-      }
-    </style>
-  </head>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>N64 Online</title>
+    <link href="icon.png" rel="icon" type="img/png">
+    <link href="style.css" rel="stylesheet" type="text/css">
+  <style type="text/css">@keyframes ejs--c2532bfe04554193cc42b3be753700{0%{opacity:0.5;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes ejs--7cadf43f3d9eb17c7e3c36de84973b{from{opacity:0}to{opacity:1}}@keyframes ejs--9bd947b3e6427453595f083d740a7c{from{}to{box-shadow:1px 3px 15px 8px #222,0px 7px 10px 0px #111,inset 0px 0px 1px 0px rgba(250,250,250,0.2),inset 8px 5px 35px 0px rgba(0,0,0,0.5)}}:root{--ejs-primary-color: 26, 175, 255}.ejs--de6433374cb30211f10e148b320b2f{height:100%}.ejs--7a5f920ceffb2913f6dbda780573cf{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:100%;width:100%;direction:ltr;font-family:Avenir,"Avenir Next","Helvetica Neue","Segoe UI",Helvetica,Arial,sans-serif;font-size:14px;font-variant-numeric:tabular-nums;font-weight:500;line-height:1.7;max-width:100%;min-width:200px;position:relative;text-shadow:none;transition:box-shadow 0.3s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.ejs--7a5f920ceffb2913f6dbda780573cf a{color:#ddd;text-decoration:none}.ejs--7a5f920ceffb2913f6dbda780573cf button{font:inherit;line-height:inherit;width:auto}.ejs--7a5f920ceffb2913f6dbda780573cf ul{list-style:none;margin:0;padding:0}.ejs--7a5f920ceffb2913f6dbda780573cf:focus{outline:0}.ejs--7a5f920ceffb2913f6dbda780573cf *{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.ejs--f3a002bba9836fe4ebfed357a45521{box-sizing:border-box}.ejs--f3a002bba9836fe4ebfed357a45521 *,.ejs--f3a002bba9836fe4ebfed357a45521 *::after,.ejs--f3a002bba9836fe4ebfed357a45521 *::before{box-sizing:inherit}.ejs--f3a002bba9836fe4ebfed357a45521 a,.ejs--f3a002bba9836fe4ebfed357a45521 button,.ejs--f3a002bba9836fe4ebfed357a45521 input,.ejs--f3a002bba9836fe4ebfed357a45521 label{touch-action:manipulation}.ejs--008adea3c1ef33a8fc94892a1e97e6 li{display:inline-block;background:#fff;border:1px solid #ccc;font-size:12px}.ejs--008adea3c1ef33a8fc94892a1e97e6 li a{color:#000}.ejs--85a95eb6bf74a40ab61b91a91e5bff{position:absolute;width:100%;height:100%;top:0;z-index:9999;background:rgba(0,0,0,0.3) !important;color:#fff;text-align:center}.ejs--d169a219343bc32dd4aecc3f6b7f25{position:absolute;width:300px;top:50%;margin-left:-150px;margin-top:-50px;left:50%;background:rgba(0,0,0,0.8) !important;padding:15px 0}.ejs--782e3572812f983b3a150eec177391{text-align:center;font-size:13px}.ejs--c426dd1d179aa351e6cec47e1d9438,.ejs--31e7e81db48819ee35ec6f50378a2e,.ejs--20d4eb2646d396f558a645dc0574f1,.ejs--4de05306c8b099bdeb4585571ac095{font-size:12px}.ejs--c7957d8666bb6b8fc7c3e9c021aaf8{background:rgba(16,16,16,0.9);border-radius:3px;font-size:13px;min-width:180px;padding:8px}.ejs--c7957d8666bb6b8fc7c3e9c021aaf8 li{padding:4px 11px;text-align:center}.ejs--c7957d8666bb6b8fc7c3e9c021aaf8 li a{color:#999;display:block;font-size:13px}.ejs--c7957d8666bb6b8fc7c3e9c021aaf8 li:hover{background:rgba(var(--ejs-primary-color), 1);border-radius:4px;box-shadow:0 0 0 5px rgba(var(--ejs-primary-color), 0.5);outline:0}.ejs--c7957d8666bb6b8fc7c3e9c021aaf8 li:hover a{color:#fff}.ejs--c7957d8666bb6b8fc7c3e9c021aaf8 li:last-child{border:0}.ejs--cbcfe0a1421cadac9a04c81d6431d6{display:block !important;position:absolute;left:50%;top:50%;transform:translate(-50%, -50%)}.ejs--cbcfe0a1421cadac9a04c81d6431d6 .ejs--f3a1903d935f6cf720d4a0498db62a:after{content:"";position:absolute;border-left:20px solid transparent;border-right:20px solid #a7a7a77d;border-top:20px solid #a7a7a77d;border-bottom:20px solid transparent;right:0}.ejs--cbcfe0a1421cadac9a04c81d6431d6 .ejs--f3a1903d935f6cf720d4a0498db62a a{right:4px;top:4px;position:absolute;border:none;padding:0;width:15px;height:15px;z-index:99}.ejs--cbcfe0a1421cadac9a04c81d6431d6 .ejs--f3a1903d935f6cf720d4a0498db62a a:before{content:"";border-bottom:1px solid #fff;transform:rotate(45deg) translateY(-45%);width:15px;height:15px;display:block;position:absolute;top:0;right:0}.ejs--cbcfe0a1421cadac9a04c81d6431d6 .ejs--f3a1903d935f6cf720d4a0498db62a a:after{content:"";border-bottom:1px solid #fff;width:15px;height:15px;display:block;position:absolute;right:0;background:transparent;top:0;transform:rotate(-45deg) translateY(-50%) translateX(0%)}a.ejs--73f9b4e94a7a1fe74e11107d5ab2ef{display:flex;justify-content:center;text-shadow:0px 1px 1px rgba(0,0,0,0.5);font-size:20px;line-height:45px;text-transform:uppercase;font-weight:bolder;position:relative;text-decoration:none;width:200px;height:45px;border:0;color:#fff !important;border-radius:35px;text-align:center;background-color:rgba(var(--ejs-primary-color), 1)}a.ejs--73f9b4e94a7a1fe74e11107d5ab2ef:active{box-shadow:0px 0px 0px 0px #222,0px 3px 7px 0px #111,inset 0px 1px 1px 0px rgba(250,250,250,0.2),inset 0px -10px 35px 5px rgba(0,0,0,0.5);top:1px}a.ejs--73f9b4e94a7a1fe74e11107d5ab2ef:hover{animation:ejs--9bd947b3e6427453595f083d740a7c 1.2s linear infinite alternate}.ejs--8732295ca5c4902a060d34706a8146{background:transparent;border:0;border-radius:3px;color:inherit;cursor:pointer;flex-shrink:0;overflow:visible;padding:7px;position:relative;transition:all 0.3s ease}.ejs--8732295ca5c4902a060d34706a8146 svg{display:block;fill:currentColor;height:18px;pointer-events:none;width:18px}.ejs--8732295ca5c4902a060d34706a8146:focus{outline:0}.ejs--8732295ca5c4902a060d34706a8146.ejs--a83b6c705e103e81a7762d0ed5e64b{box-shadow:0 0 0 5px rgba(var(--ejs-primary-color), 0.5);outline:0}.ejs--8732295ca5c4902a060d34706a8146:not(.ejs--b1238136ec472a92297159882cf4b8) .ejs--ec731619062226d943da67f5d83009,.ejs--8732295ca5c4902a060d34706a8146.ejs--b1238136ec472a92297159882cf4b8 .ejs--dc7068585e3d84fe0e676864c1439e,.ejs--8732295ca5c4902a060d34706a8146:not(.ejs--b1238136ec472a92297159882cf4b8) .ejs--0c6561f9155750b0aeeed6da5da7bf,.ejs--8732295ca5c4902a060d34706a8146.ejs--b1238136ec472a92297159882cf4b8 .ejs--13d64e30c1333cc99391af48ddabaa{display:none}.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--8732295ca5c4902a060d34706a8146 svg{filter:drop-shadow(0 1px 1px rgba(0,0,0,0.15))}.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--8732295ca5c4902a060d34706a8146.ejs--a83b6c705e103e81a7762d0ed5e64b,.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--8732295ca5c4902a060d34706a8146:hover,.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--8732295ca5c4902a060d34706a8146[aria-expanded='true']{background:rgba(var(--ejs-primary-color), 1);color:#fff}.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--8732295ca5c4902a060d34706a8146[disabled],.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--8732295ca5c4902a060d34706a8146[disabled]:hover{background:transparent;color:#4b4b4b}.ejs--f3a002bba9836fe4ebfed357a45521 ::-webkit-media-controls{display:none}.ejs--1acedc5ed6816abe96dd27d910fd74{align-items:center;display:flex;justify-content:flex-start;text-align:center}.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146,.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--f1aa376719b564cae0e653157cde14,.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--90d2780f99bcc76fdb6b0378a7238e,.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--c7bfb2d1b75a40fdaaf90624bea9e7,.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--36ceeeec0df37a9cf4bbe05fa204ec{margin-left:5px}.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--c7bfb2d1b75a40fdaaf90624bea9e7+.ejs--8732295ca5c4902a060d34706a8146,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146+.ejs--c7bfb2d1b75a40fdaaf90624bea9e7,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146+.ejs--8732295ca5c4902a060d34706a8146,.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--f1aa376719b564cae0e653157cde14+.ejs--8732295ca5c4902a060d34706a8146{margin-left:2px}.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child+[data-btn='pause']{margin-left:0}.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child+[data-btn='netplay']{margin-right:auto}.ejs--1acedc5ed6816abe96dd27d910fd74:empty{display:none}@media (min-width: 480px){.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146,.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--c7bfb2d1b75a40fdaaf90624bea9e7,.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--f1aa376719b564cae0e653157cde14,.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--90d2780f99bcc76fdb6b0378a7238e,.ejs--1acedc5ed6816abe96dd27d910fd74 .ejs--36ceeeec0df37a9cf4bbe05fa204ec{margin-left:10px}}.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--1acedc5ed6816abe96dd27d910fd74{background:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));border-bottom-left-radius:inherit;border-bottom-right-radius:inherit;bottom:0;color:#fff;left:0;padding:20px 5px 5px;position:absolute;right:0;transition:opacity 0.4s ease-in-out, transform 0.4s ease-in-out;z-index:3}@media (min-width: 480px){.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--1acedc5ed6816abe96dd27d910fd74{padding:15px 10px 10px}}.ejs--d5f430a99a1619b3434bf58e34a99c.ejs--1b8cb7f2294b1eb5de5238daea3513 .ejs--1acedc5ed6816abe96dd27d910fd74{opacity:0;pointer-events:none;transform:translateY(100%)}.ejs--7a5f920ceffb2913f6dbda780573cf [data-btn='fullscreen']{display:none}.ejs--19409fe2057ab935a7e46abb5b4f49 [data-btn='fullscreen']{display:inline-block}.ejs--c7bfb2d1b75a40fdaaf90624bea9e7{display:flex;position:relative}.ejs--c7bfb2d1b75a40fdaaf90624bea9e7 .ejs--8732295ca5c4902a060d34706a8146 svg{transition:transform 0.3s ease}.ejs--c7bfb2d1b75a40fdaaf90624bea9e7 .ejs--8732295ca5c4902a060d34706a8146[aria-expanded='true'] svg{transform:rotate(90deg)}.ejs--c7bfb2d1b75a40fdaaf90624bea9e7 .ejs--8732295ca5c4902a060d34706a8146[aria-expanded='true'] .ejs--74c6d4176d27e37a19d2e9e61de8f4{display:none}.ejs--013213afedeeb6878089b1ca1b4e47{animation:ejs--c2532bfe04554193cc42b3be753700 0.2s ease;background:rgba(16,16,16,0.9);border-radius:4px;bottom:100%;box-shadow:0 1px 2px rgba(0,0,0,0.15);color:#4f5b5f;font-size:16px;margin-bottom:10px;position:absolute;right:-3px;text-align:left;white-space:nowrap;z-index:3}.ejs--013213afedeeb6878089b1ca1b4e47>div{overflow:hidden;transition:height 0.35s cubic-bezier(0.4, 0, 0.2, 1),width 0.35s cubic-bezier(0.4, 0, 0.2, 1)}.ejs--013213afedeeb6878089b1ca1b4e47::after{border:4px solid transparent;border-top-color:rgba(16,16,16,0.9);content:'';height:0;position:absolute;right:15px;top:100%;width:0}.ejs--013213afedeeb6878089b1ca1b4e47 [role='menu']{padding:7px}.ejs--013213afedeeb6878089b1ca1b4e47 [role='menuitem'],.ejs--013213afedeeb6878089b1ca1b4e47 [role='menuitemradio']{margin-top:2px}.ejs--013213afedeeb6878089b1ca1b4e47 [role='menuitem']:first-child,.ejs--013213afedeeb6878089b1ca1b4e47 [role='menuitemradio']:first-child{margin-top:0}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146{align-items:center;color:#999;display:flex;font-size:13px;padding:4px 11px;user-select:none;width:100%}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146>span{align-items:inherit;display:flex;width:100%}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146::after{border:4px solid transparent;content:'';position:absolute;top:50%;transform:translateY(-50%)}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--0b4cdb4057d1a4623e60836ccc6275{padding-right:28px}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--0b4cdb4057d1a4623e60836ccc6275::after{border-left-color:rgba(79,91,95,0.8);right:5px}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--0b4cdb4057d1a4623e60836ccc6275.ejs--a83b6c705e103e81a7762d0ed5e64b::after,.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--0b4cdb4057d1a4623e60836ccc6275:hover::after{border-left-color:currentColor}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--a7ad9de0cb0ca672b6703c50de7db9{font-weight:500;margin:7px;margin-bottom:3px;padding-left:28px;position:relative;width:calc(100% - 14px)}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--a7ad9de0cb0ca672b6703c50de7db9::after{border-right-color:rgba(79,91,95,0.8);left:7px}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--a7ad9de0cb0ca672b6703c50de7db9::before{background:#b7c5cd;box-shadow:0 1px 0 #fff;content:'';height:1px;left:0;margin-top:4px;overflow:hidden;position:absolute;right:0;top:100%}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--a7ad9de0cb0ca672b6703c50de7db9.ejs--a83b6c705e103e81a7762d0ed5e64b::after,.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--a7ad9de0cb0ca672b6703c50de7db9:hover::after{border-right-color:currentColor}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146[role='menuitemradio']{padding-left:7px}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146[role='menuitemradio']::before,.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146[role='menuitemradio']::after{border-radius:100%}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146[role='menuitemradio']::before{background:rgba(204,204,204,0.1);content:'';display:block;flex-shrink:0;height:16px;margin-right:10px;transition:all 0.3s ease;width:16px}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146[role='menuitemradio']::after{background:#fff;border:0;height:6px;left:12px;opacity:0;top:50%;transform:translateY(-50%) scale(0);transition:transform 0.3s ease, opacity 0.3s ease;width:6px}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146[role='menuitemradio'][aria-checked='true']::before{background:rgba(var(--ejs-primary-color), 1)}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146[role='menuitemradio'][aria-checked='true']::after{opacity:1;transform:translateY(-50%) scale(1)}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146[role='menuitemradio'].ejs--a83b6c705e103e81a7762d0ed5e64b::before,.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--8732295ca5c4902a060d34706a8146[role='menuitemradio']:hover::before{background:rgba(0,0,0,0.1)}.ejs--013213afedeeb6878089b1ca1b4e47 .ejs--f91e90fe7cabc875aff9a431bf5389{align-items:center;display:flex;margin-left:auto;margin-right:-5px;overflow:hidden;padding-left:25px;pointer-events:none}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']{-webkit-appearance:none;background:transparent;border:0;border-radius:28px;color:rgba(var(--ejs-primary-color), 1);display:block;height:20px;margin:0;padding:0;transition:box-shadow 0.3s ease;width:100%}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-webkit-slider-runnable-track{background:transparent;border:0;border-radius:3px;height:6px;transition:box-shadow 0.3s ease;user-select:none;background-image:linear-gradient(to right, currentColor var(--value, 0%), transparent var(--value, 0%))}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-webkit-slider-thumb{background:#fff;border:0;border-radius:100%;box-shadow:0 1px 1px rgba(0,0,0,0.15),0 0 0 1px rgba(47,52,61,0.2);height:14px;position:relative;transition:all 0.2s ease;width:14px;-webkit-appearance:none;margin-top:-4px}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-moz-range-track{background:transparent;border:0;border-radius:3px;height:6px;transition:box-shadow 0.3s ease;user-select:none}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-moz-range-thumb{background:#fff;border:0;border-radius:100%;box-shadow:0 1px 1px rgba(0,0,0,0.15),0 0 0 1px rgba(47,52,61,0.2);height:14px;position:relative;transition:all 0.2s ease;width:14px}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-moz-range-progress{background:currentColor;border-radius:3px;height:6px}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-ms-track{background:transparent;border:0;border-radius:3px;height:6px;transition:box-shadow 0.3s ease;user-select:none;color:transparent}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-ms-fill-upper{background:transparent;border:0;border-radius:3px;height:6px;transition:box-shadow 0.3s ease;user-select:none}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-ms-fill-lower{background:transparent;border:0;border-radius:3px;height:6px;transition:box-shadow 0.3s ease;user-select:none;background:currentColor}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-ms-thumb{background:#fff;border:0;border-radius:100%;box-shadow:0 1px 1px rgba(0,0,0,0.15),0 0 0 1px rgba(47,52,61,0.2);height:14px;position:relative;transition:all 0.2s ease;width:14px;margin-top:0}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-ms-tooltip{display:none}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']:focus{outline:0}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range']::-moz-focus-outer{border:0}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range'].ejs--a83b6c705e103e81a7762d0ed5e64b::-webkit-slider-runnable-track{box-shadow:0 0 0 5px rgba(var(--ejs-primary-color), 0.5);outline:0}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range'].ejs--a83b6c705e103e81a7762d0ed5e64b::-moz-range-track{box-shadow:0 0 0 5px rgba(var(--ejs-primary-color), 0.5);outline:0}.ejs--f3a002bba9836fe4ebfed357a45521 input[type='range'].ejs--a83b6c705e103e81a7762d0ed5e64b::-ms-track{box-shadow:0 0 0 5px rgba(var(--ejs-primary-color), 0.5);outline:0}.ejs--f3a002bba9836fe4ebfed357a45521.ejs--d5f430a99a1619b3434bf58e34a99c input[type='range']::-webkit-slider-runnable-track{background-color:rgba(255,255,255,0.25)}.ejs--f3a002bba9836fe4ebfed357a45521.ejs--d5f430a99a1619b3434bf58e34a99c input[type='range']::-moz-range-track{background-color:rgba(255,255,255,0.25)}.ejs--f3a002bba9836fe4ebfed357a45521.ejs--d5f430a99a1619b3434bf58e34a99c input[type='range']::-ms-track{background-color:rgba(255,255,255,0.25)}.ejs--f3a002bba9836fe4ebfed357a45521.ejs--d5f430a99a1619b3434bf58e34a99c input[type='range']:active::-webkit-slider-thumb{box-shadow:0 1px 1px rgba(0,0,0,0.15),0 0 0 1px rgba(47,52,61,0.2),0 0 0 3px rgba(255,255,255,0.5)}.ejs--f3a002bba9836fe4ebfed357a45521.ejs--d5f430a99a1619b3434bf58e34a99c input[type='range']:active::-moz-range-thumb{box-shadow:0 1px 1px rgba(0,0,0,0.15),0 0 0 1px rgba(47,52,61,0.2),0 0 0 3px rgba(255,255,255,0.5)}.ejs--f3a002bba9836fe4ebfed357a45521.ejs--d5f430a99a1619b3434bf58e34a99c input[type='range']:active::-ms-thumb{box-shadow:0 1px 1px rgba(0,0,0,0.15),0 0 0 1px rgba(47,52,61,0.2),0 0 0 3px rgba(255,255,255,0.5)}.ejs--90d2780f99bcc76fdb6b0378a7238e{font-size:14px}.ejs--90d2780f99bcc76fdb6b0378a7238e+.ejs--90d2780f99bcc76fdb6b0378a7238e::before{content:'4';margin-right:10px}@media (max-width: 767px){.ejs--90d2780f99bcc76fdb6b0378a7238e+.ejs--90d2780f99bcc76fdb6b0378a7238e{display:none}}.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--90d2780f99bcc76fdb6b0378a7238e{text-shadow:0 1px 1px rgba(0,0,0,0.15)}.ejs--74c6d4176d27e37a19d2e9e61de8f4{background:rgba(255,255,255,0.9);border-radius:3px;bottom:100%;box-shadow:0 1px 2px rgba(0,0,0,0.15);color:#4f5b5f;font-size:14px;font-weight:500;left:50%;line-height:1.3;margin-bottom:10px;opacity:0;padding:5px 7.5px;pointer-events:none;position:absolute;transform:translate(-50%, 10px) scale(0.8);transform-origin:50% 100%;transition:transform 0.2s 0.1s ease, opacity 0.2s 0.1s ease;white-space:nowrap;z-index:2}.ejs--74c6d4176d27e37a19d2e9e61de8f4::before{border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid rgba(255,255,255,0.9);bottom:-4px;content:'';height:0;left:50%;position:absolute;transform:translateX(-50%);width:0;z-index:2}.ejs--7a5f920ceffb2913f6dbda780573cf .ejs--8732295ca5c4902a060d34706a8146:hover .ejs--74c6d4176d27e37a19d2e9e61de8f4,.ejs--7a5f920ceffb2913f6dbda780573cf .ejs--8732295ca5c4902a060d34706a8146.ejs--a83b6c705e103e81a7762d0ed5e64b .ejs--74c6d4176d27e37a19d2e9e61de8f4,.ejs--6ea27aa07e60d1d6e4c9782740028a{opacity:1;transform:translate(-50%, 0) scale(1)}.ejs--7a5f920ceffb2913f6dbda780573cf .ejs--8732295ca5c4902a060d34706a8146:hover .ejs--74c6d4176d27e37a19d2e9e61de8f4{z-index:3}.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child .ejs--74c6d4176d27e37a19d2e9e61de8f4,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child+.ejs--8732295ca5c4902a060d34706a8146 .ejs--74c6d4176d27e37a19d2e9e61de8f4{left:0;transform:translate(0, 10px) scale(0.8);transform-origin:0 100%}.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child .ejs--74c6d4176d27e37a19d2e9e61de8f4::before,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child+.ejs--8732295ca5c4902a060d34706a8146 .ejs--74c6d4176d27e37a19d2e9e61de8f4::before{left:16px}.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:last-child .ejs--74c6d4176d27e37a19d2e9e61de8f4{left:auto;right:0;transform:translate(0, 10px) scale(0.8);transform-origin:100% 100%}.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:last-child .ejs--74c6d4176d27e37a19d2e9e61de8f4::before{left:auto;right:16px;transform:translateX(50%)}.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child:hover .ejs--74c6d4176d27e37a19d2e9e61de8f4,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child.ejs--a83b6c705e103e81a7762d0ed5e64b .ejs--74c6d4176d27e37a19d2e9e61de8f4,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child .ejs--6ea27aa07e60d1d6e4c9782740028a,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child+.ejs--8732295ca5c4902a060d34706a8146:hover .ejs--74c6d4176d27e37a19d2e9e61de8f4,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child+.ejs--8732295ca5c4902a060d34706a8146.ejs--a83b6c705e103e81a7762d0ed5e64b .ejs--74c6d4176d27e37a19d2e9e61de8f4,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:first-child+.ejs--8732295ca5c4902a060d34706a8146 .ejs--6ea27aa07e60d1d6e4c9782740028a,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:last-child:hover .ejs--74c6d4176d27e37a19d2e9e61de8f4,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:last-child.ejs--a83b6c705e103e81a7762d0ed5e64b .ejs--74c6d4176d27e37a19d2e9e61de8f4,.ejs--1acedc5ed6816abe96dd27d910fd74>.ejs--8732295ca5c4902a060d34706a8146:last-child .ejs--6ea27aa07e60d1d6e4c9782740028a{transform:translate(0, 0) scale(1)}.ejs--d5f430a99a1619b3434bf58e34a99c{background:#000;color:#bcbcbc;overflow:hidden}.ejs--d5f430a99a1619b3434bf58e34a99c.ejs--da54136ccf8c6b0b16d98e8b8e8b88{overflow:visible}.ejs--057800d021995e1347ec07cb748672{background:#333;border-radius:inherit;height:100%;overflow:hidden;position:relative;text-align:center;z-index:0}.ejs--057800d021995e1347ec07cb748672>*{height:100% !important}.ejs--057800d021995e1347ec07cb748672 canvas{height:100% !important;width:auto !important;max-width:100% !important}.ejs--64f1256f556fb94454b930cb3ea7f2 .ejs--057800d021995e1347ec07cb748672 canvas{height:auto !important;width:100% !important}.ejs--7da7949f602347007818e6d192eb23 .ejs--057800d021995e1347ec07cb748672{background-color:transparent}.ejs--f1aa376719b564cae0e653157cde14{flex:1;left:7px;margin-right:14px;position:relative}.ejs--f1aa376719b564cae0e653157cde14 input[type='range'],.ejs--f8d706413436fd119cf01aaf5a9d9d{margin-left:-7px;margin-right:-7px;width:calc(100% + 14px)}.ejs--f1aa376719b564cae0e653157cde14 input[type='range']{position:relative;z-index:2}.ejs--f1aa376719b564cae0e653157cde14 .ejs--74c6d4176d27e37a19d2e9e61de8f4{font-size:14px;left:0}.ejs--f8d706413436fd119cf01aaf5a9d9d{-webkit-appearance:none;background:transparent;border:0;border-radius:100px;height:6px;left:0;margin-top:-3px;padding:0;position:absolute;top:50%}.ejs--f8d706413436fd119cf01aaf5a9d9d::-webkit-progress-bar{background:transparent;transition:width 0.2s ease}.ejs--f8d706413436fd119cf01aaf5a9d9d::-webkit-progress-value{background:currentColor;border-radius:100px;min-width:6px}.ejs--f8d706413436fd119cf01aaf5a9d9d::-moz-progress-bar{background:currentColor;border-radius:100px;min-width:6px;transition:width 0.2s ease}.ejs--f8d706413436fd119cf01aaf5a9d9d::-ms-fill{border-radius:100px;transition:width 0.2s ease}.ejs--d5f430a99a1619b3434bf58e34a99c .ejs--f8d706413436fd119cf01aaf5a9d9d{box-shadow:0 1px 1px rgba(0,0,0,0.15);color:rgba(255,255,255,0.25)}.ejs--bd0222e58d71b0a304d6037dfcffd5 .ejs--f8d706413436fd119cf01aaf5a9d9d{color:rgba(183,197,205,0.66)}.ejs--d5f430a99a1619b3434bf58e34a99c.ejs--2521e1257996f264de36e77cc9c5ee .ejs--f8d706413436fd119cf01aaf5a9d9d{background-color:rgba(255,255,255,0.25)}.ejs--bd0222e58d71b0a304d6037dfcffd5.ejs--2521e1257996f264de36e77cc9c5ee .ejs--f8d706413436fd119cf01aaf5a9d9d{background-color:rgba(183,197,205,0.66)}.ejs--36ceeeec0df37a9cf4bbe05fa204ec{max-width:120px;align-items:center;display:flex;flex:1;position:relative}.ejs--36ceeeec0df37a9cf4bbe05fa204ec input[type='range']{margin-left:5px;position:relative;z-index:2}@media (min-width: 480px){.ejs--36ceeeec0df37a9cf4bbe05fa204ec{max-width:90px}}@media (min-width: 768px){.ejs--36ceeeec0df37a9cf4bbe05fa204ec{max-width:110px}}.ejs--d31688f864f56d6426ebbf2217d6ee{height:100%;overflow:hidden;position:absolute;top:0;width:100%}.ejs--5e71fd80268afbb1d588e40b993508{background:rgba(0,0,0,0.8);height:100%;overflow:auto;position:relative;text-align:center;z-index:9999}.ejs--5e71fd80268afbb1d588e40b993508 h4{color:#ccc;font-size:24px;margin:0;padding:10px}.ejs--1e0f0672f67d0e96592314c9ed78b0{display:block}.ejs--d7e6a6a8f38bfaa256fe5d709a8258{background:transparent;display:block;position:absolute;top:0;width:100%;z-index:10001}.ejs--b183f581b5336c4908ad258d3e1cc7{display:block}.ejs--b183f581b5336cashrqd258d3e1cc7{display:block}.ejs--158ea9dd34e3e7af2d837f8b05babb{display:block}.ejs--3f0897a8158ba363a0ee0afe4da7c5{display:block}.ejs--38cc09882a55e98c76168dbe838aa0{height:100%;margin:0 auto;max-width:800px;overflow:hidden;position:relative;width:100%}.ejs--3f0897a8158ba363a0ee0afe4da7c5 input[type='text']{background-color:#fff;border:1px solid #000;font-size:12px;font-weight:700}.ejs--f3a002bba9836fe4ebfed357a45521 ::-webkit-scrollbar{width:8px;height:16px;background-color:transparent}.ejs--f3a002bba9836fe4ebfed357a45521 ::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);border-radius:10px;background-color:transparent}.ejs--f3a002bba9836fe4ebfed357a45521 ::-webkit-scrollbar-thumb{border-radius:0;-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);background-color:#f5f5f5}.ejs--f3a002bba9836fe4ebfed357a45521{scrollbar-face-color:#F5F5F5;scrollbar-highlight-color:transparent;scrollbar-3dlight-color:transparent;scrollbar-darkshadow-color:transparent;scrollbar-Shadow-color:transparent;scrollbar-arrow-color:#fff;scrollbar-track-color:transparent;scrollbar-width:thin;scrollbar-color:transparent #f5f5f5}.ejs--5e71fd80268afbb1d588e40b993508 *{color:#bcbcbc !important;border:unset}.ejs--5e71fd80268afbb1d588e40b993508 a:focus{background:inherit}.ejs--5e71fd80268afbb1d588e40b993508 input,.ejs--5e71fd80268afbb1d588e40b993508 textarea{color:#000 !important}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--b373c9d5029d49324fb8ac3ece96c1{float:none}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--a5e2629abb9a5bcbc8b2c1307922d2{height:calc(100% - 130px);overflow:auto}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--a5e2629abb9a5bcbc8b2c1307922d2 a{border:none}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--580e3c22e63f8a1eb29694fd0b141b{margin-top:10px}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--580e3c22e63f8a1eb29694fd0b141b a{border-radius:.25rem;font-size:.875rem;padding-left:1rem;padding-right:1rem;padding-top:.5rem;padding-bottom:.5rem;display:inline-block;background-color:rgba(var(--ejs-primary-color), 1);margin:0 10px;color:#fff !important}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--580e3c22e63f8a1eb29694fd0b141b a.ejs--ad20569e1449d7b8e99e6465960456{background-color:#929292}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--8e7922427f460a31935084b7acfb1a{opacity:1}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--8e7922427f460a31935084b7acfb1a li{display:inline-block;float:none}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--8e7922427f460a31935084b7acfb1a li.ejs--68d337c212ec6a5bc43125440d422b{border-bottom:1px solid #fff;background-color:#ffffff}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--8e7922427f460a31935084b7acfb1a li a{padding:2px 5px;color:#bcbcbc  !important}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--8e7922427f460a31935084b7acfb1a li.ejs--68d337c212ec6a5bc43125440d422b a{color:#000 !important}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--31eb28817642bb1bfe0a2c422108bb{opacity:1}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--f932566a0af5314da834324c901978{opacity:1}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--f932566a0af5314da834324c901978 div.ejs--c233fb69cbef43078bc39e9d1efac8:hover{background-color:#2d2d2d}.ejs--d169a219343bc32dd4aecc3f6b7f25{opacity:1}.ejs--ad20569e1449d7b8e99e6465960456{float:none}.ejs--ad20569e1449d7b8e99e6465963825{float:none}.ejs--ad20569e1449d7b8e99e6468571053{float:none}.ejs--bdb54e9fc47f9805b506b746e897bf{float:none}.ejs--67d03ee7480b871ad6507d6319a839{float:none}.ejs--c2d931157456c1d438d40a2f66af2c{float:none}.ejs--5e71fd80268afbb1d588e40b993508 .ejs--f932566a0af5314da834324c901978 a.ejs--6604c83041a275a78837c452a71dd8,.ejs--99150e15f962c63c689cadc81ef40d{float:none;padding:0.1rem 0.5rem;background-color:rgba(var(--ejs-primary-color), 1);color:#fff !important;border-radius:0.25rem;cursor:pointer}.ejs--71527b6509aa48afce3ce1a11c02f0{float:none}.ejs--7ad35768e3f6b9faf97db01d5b60ae{float:none}.ejs--9c403e5e107a3e4374ba244b636400{float:none}.ejs--d6a46533fa6e510a571af5c28b440a{float:none}.ejs--d6a46533fa6e510a571af5c28b440a table{font-size:0.8rem;padding:0 10px}.ejs--d6a46533fa6e510a571af5c28b440a thead{background-color:rgba(50,50,50,0.66)}.ejs--d6a46533fa6e510a571af5c28b440a tbody tr:hover{background-color:#2d2d2d}.ejs--d6a46533fa6e510a571af5c28b440a tbody td{padding:10px 0}.ejs--d6a46533fa6e510a571af5c28b440a tbody td svg{width:12px;vertical-align:middle}.ejs--d6a46533fa6e510a571af5c28b440a table td:nth-child(2),.ejs--d6a46533fa6e510a571af5c28b440a table td:nth-child(3){text-align:center;width:80px}.ejs--57ca9b3853cc7de731483cfcc95a59{float:none}.ejs--0885d5e25e19127b6b516014426a1b{float:none}.ejs--25023d28756fdb9dfbbfb6dccb8677{float:none}.ejs--75b3a8d35aacc6424ed7422fdeaaaa{float:none}.ejs--eefdf28d69ed2d20f197308981bb61{float:none}.ejs--eefdf28d69ed2d20f197308981bb61 table{font-size:0.8rem;padding:0 10px}.ejs--eefdf28d69ed2d20f197308981bb61 thead,.ejs--eefdf28d69ed2d20f197308981bb61 tbody,.ejs--eefdf28d69ed2d20f197308981bb61 tfoot,.ejs--d6a46533fa6e510a571af5c28b440a thead,.ejs--d6a46533fa6e510a571af5c28b440a tbody,.ejs--d6a46533fa6e510a571af5c28b440a tfoot{background:transparent;text-align:left}.ejs--eefdf28d69ed2d20f197308981bb61 tbody tr:hover{background-color:#2d2d2d}.ejs--eefdf28d69ed2d20f197308981bb61 tr td:nth-child(1),.ejs--eefdf28d69ed2d20f197308981bb61 tr td:nth-child(3){width:80px}.ejs--9e670880bb57e824400fa00f09aaad,.ejs--2b4e3c245b7b25dfdac5e09155a68e,.ejs--572b0b3a0345a6b01b01a15a02842c,.ejs--a7d7f80c8999469c991ea452a85dd9{float:none}.ejs--2b4e3c245b7b25dfdac5e09155a68e{max-width:320px;margin:0 auto;text-align:left;width:100%}.ejs--952c974392296e7f643d51db380157{height:100%;overflow:hidden;position:absolute;top:0;width:100%}.ejs--0d7e216cf12ae73705b5d5bb0452fc{float:none}.ejs--c0a5e71f6613caab66d6ae15a5a00f{color:rgba(255,255,255,0.8);font-size:0.8rem;padding:5px;text-align:left;text-shadow:1px 1px 1px #000}.ejs--2440e3b831017ff8327c939e2a4413{display:none;position:fixed;bottom:30px;width:100%;position:absolute;bottom:80px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--b8d8b771d0bbb94e2bbd03054f53fd{position:absolute;bottom:250px;width:100%}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--c83d70cb63c933edc073c7fe92e32b{position:absolute;bottom:50px;width:125px;height:125px;left:10px}@media (min-width: 480px){.ejs--2440e3b831017ff8327c939e2a4413{bottom:50px}}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--6e7015634623fd6a82e6a7d3488c84{position:absolute;font-size:20px;width:50px;height:50px;text-align:center;line-height:50px;border:1px solid #ccc;border-radius:50%;font-size:30px;font-weight:bold;background-color:rgba(255,255,255,0.15);user-select:none}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--49fa47c86a131e4ca8fb268bfdde89{position:absolute;bottom:10px;height:30px;width:124px;left:50%;margin-left:-62px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--49fa47c86a131e4ca8fb268bfdde89 .ejs--6e7015634623fd6a82e6a7d3488c84{width:60px;height:30px;font-size:12px;font-weight:bolder;border-radius:5px;border:1px solid #ccc;line-height:30px;text-align:center;text-transform:uppercase}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--7d2b19f77fd0ccabf94dc1ca39ae18{position:absolute;bottom:50px;width:130px;height:130px;right:10px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--7d2b19f77fd0ccabf94dc1ca39ae18 .ejs--6e7015634623fd6a82e6a7d3488c84{width:50px;height:50px;text-align:center;line-height:50px;border:1px solid #ccc;border-radius:50%;font-size:30px;font-weight:bold;transition:all 0.2s}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--6e7015634623fd6a82e6a7d3488c84.ejs--d708d9d486f1eca73a593d5c09f8ad{background-color:#000000ad}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--6e7015634623fd6a82e6a7d3488c84 img{width:100%}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--76fa7567879f97f5991c50ac600735{left:64px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--fbd499578ebef494fbcd1c9114cd1d{left:40px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--b4c6d9bdbbd3dcfc8fa82689ecf448{left:40px;top:80px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--87c940c15830daa967b08e67e9b87e{left:0;top:40px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--b7c456c7dd7a616a55965bb134323b{left:81px;top:40px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--7930ee9bb7ae2fa6e2f7b5568f1e98,.ejs--2440e3b831017ff8327c939e2a4413 .ejs--2226100d4c5408c2699e942aabb31c{height:31px;text-align:center;border:1px solid #ccc;border-radius:5px;line-height:31px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--7930ee9bb7ae2fa6e2f7b5568f1e98{left:10px}.ejs--2440e3b831017ff8327c939e2a4413 .ejs--2226100d4c5408c2699e942aabb31c{right:10px}.ejs--eefec939452eb92fad035932d0f47c{float:none}.ejs--f1f43b27384834c8c22c6f81d0c5ae{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);display:flex;justify-content:center;align-items:center}.ejs--c4ee33766a01ed0356c3ec07898e96{background-color:rgba(0,0,0,0.8);border:1px solid rgba(238,238,238,0.2);padding:30px;min-width:200px;max-width:500px;max-height:100vh;border-radius:4px;overflow-y:auto;box-sizing:border-box}.ejs--a073f32023da1ced805c5f95a4e81c{display:flex;justify-content:space-between;align-items:center}.ejs--ed44f59bb8cd49177586b140658c6c{background-color:transparent;padding:0}.ejs--81470ba5e6a6d68014839ad4d9a977{margin-top:0 !important;margin-bottom:0 !important;font-weight:600 !important;font-size:1.25rem;line-height:1.25 !important;color:rgba(var(--ejs-primary-color), 1) !important}.ejs--c3c85789c2a7f56d8b26dba75b7e1f{background:transparent;border:0}.ejs--a073f32023da1ced805c5f95a4e81c .ejs--c3c85789c2a7f56d8b26dba75b7e1f:before{content:"¹5"}.ejs--db44f5520e6f4fd0dd34b478bb9ee8{margin-top:2rem;margin-bottom:2rem;line-height:1.5;color:rgba(0,0,0,0.8);text-align:left}.ejs--db44f5520e6f4fd0dd34b478bb9ee8 input,.ejs--db44f5520e6f4fd0dd34b478bb9ee8 select,.ejs--db44f5520e6f4fd0dd34b478bb9ee8 textarea{font-size:1rem;padding:0.4rem;max-width:100%}.ejs--319bcec5dee9444e1a2a53d6503b7c{color:#fff !important;font-size:.875rem;padding-left:1rem;padding-right:1rem;padding-top:.5rem;padding-bottom:.5rem;background-color:#929292;color:rgba(0,0,0,0.8);border-radius:.25rem;border-style:none;border-width:0;cursor:pointer;-webkit-appearance:button;text-transform:none;overflow:visible;line-height:1.15;margin:0;will-change:transform;-moz-osx-font-smoothing:grayscale;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:translateZ(0);transform:translateZ(0);transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.ejs--319bcec5dee9444e1a2a53d6503b7c:focus,.ejs--319bcec5dee9444e1a2a53d6503b7c:hover{-webkit-transform:scale(1.05);transform:scale(1.05)}.ejs--eaf3c1cba25d415d92ac48d7db34dd{background-color:rgba(var(--ejs-primary-color), 1)}.ejs--940087708c06b6129ce2bfa45f1d89{color:#f00 !important}@keyframes ejs--9d7aa2bd5ee276be085e5b2a0bbc2e{from{opacity:0}to{opacity:1}}@keyframes ejs--184b7558ffeb569c1790654537477b{from{opacity:1}to{opacity:0}}@keyframes ejs--8b069266f76099cc6bc220f6ea56cc{from{transform:translateY(15%)}to{transform:translateY(0)}}@keyframes ejs--379a464ad0e66ea5fc601e5f2fd73e{from{transform:translateY(0)}to{transform:translateY(-10%)}}.ejs--bef295f3125e9ba83d4f3677264bae{display:none}.ejs--bef295f3125e9ba83d4f3677264bae.ejs--60c17e0d149099f207b06f27edae6a{position:absolute;top:0;display:block;height:100%;width:100%}.ejs--bef295f3125e9ba83d4f3677264bae[aria-hidden="false"] .ejs--f1f43b27384834c8c22c6f81d0c5ae{animation:ejs--9d7aa2bd5ee276be085e5b2a0bbc2e 0.3s cubic-bezier(0, 0, 0.2, 1)}.ejs--bef295f3125e9ba83d4f3677264bae[aria-hidden="false"] .ejs--c4ee33766a01ed0356c3ec07898e96{animation:ejs--8b069266f76099cc6bc220f6ea56cc 0.3s cubic-bezier(0, 0, 0.2, 1)}.ejs--bef295f3125e9ba83d4f3677264bae[aria-hidden="true"] .ejs--f1f43b27384834c8c22c6f81d0c5ae{animation:ejs--184b7558ffeb569c1790654537477b 0.3s cubic-bezier(0, 0, 0.2, 1)}.ejs--bef295f3125e9ba83d4f3677264bae[aria-hidden="true"] .ejs--c4ee33766a01ed0356c3ec07898e96{animation:ejs--379a464ad0e66ea5fc601e5f2fd73e 0.3s cubic-bezier(0, 0, 0.2, 1)}.ejs--bef295f3125e9ba83d4f3677264bae .ejs--c4ee33766a01ed0356c3ec07898e96,.ejs--bef295f3125e9ba83d4f3677264bae .ejs--f1f43b27384834c8c22c6f81d0c5ae{will-change:transform}.ejs--4c3e63d4005bd8a0468e9c74a35f62{padding-left:2.25rem;position:relative;padding:0.2em 0;clear:both}.ejs--4c3e63d4005bd8a0468e9c74a35f62:hover{background-color:rgba(0,0,0,0.8)}.ejs--4c3e63d4005bd8a0468e9c74a35f62 input[type=checkbox]{position:absolute;z-index:-1;opacity:0;box-sizing:border-box;width:auto}.ejs--4c3e63d4005bd8a0468e9c74a35f62 label{position:relative;margin-bottom:0;vertical-align:top;word-break:break-word}.ejs--4c3e63d4005bd8a0468e9c74a35f62 label::before{position:absolute;top:.325rem;display:block;height:1rem;content:"";background-color:#fff;border:#adb5bd solid 1px;left:-2.25rem;width:1.75rem;pointer-events:all;border-radius:.5rem}.ejs--4c3e63d4005bd8a0468e9c74a35f62 label::after{position:absolute;display:block;content:"";background-repeat:no-repeat;background-position:center center;top:calc(.325rem + 2px);left:calc(-2.25rem + 2px);width:calc(1rem - 4px);height:calc(1rem - 4px);background-color:#adb5bd;border-radius:.5rem;transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-transform .15s ease-in-out;transition:transform .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:transform .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-transform .15s ease-in-out}.ejs--4c3e63d4005bd8a0468e9c74a35f62 input:checked+label::before{color:#fff;border-color:rgba(var(--ejs-primary-color), 1);background-color:rgba(var(--ejs-primary-color), 1)}.ejs--4c3e63d4005bd8a0468e9c74a35f62 input:checked+label::after{background-color:#fff;-webkit-transform:translateX(0.75rem);transform:translateX(0.75rem)}.ejs--90bcdd71cd0d2307e9ee0dffa916da{position:absolute;padding:0.1rem 0.5rem;background-color:rgba(var(--ejs-primary-color), 1);color:#fff !important;border-radius:0.25rem;cursor:pointer;right:.025rem}.ejs--7a5f920ceffb2913f6dbda780573cf:fullscreen{background:#000;border-radius:0 !important;height:100%;margin:0;width:100%}.ejs--7a5f920ceffb2913f6dbda780573cf:fullscreen canvas{height:100% !important;max-width:100%;min-width:0;width:auto}.ejs--7a5f920ceffb2913f6dbda780573cf:fullscreen .ejs--057800d021995e1347ec07cb748672{height:100%;width:100%}.ejs--7a5f920ceffb2913f6dbda780573cf:fullscreen .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e{display:block}.ejs--7a5f920ceffb2913f6dbda780573cf:fullscreen .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e+svg{display:none}.ejs--7a5f920ceffb2913f6dbda780573cf:-webkit-full-screen{background:#000;border-radius:0 !important;height:100%;margin:0;width:100%}.ejs--7a5f920ceffb2913f6dbda780573cf:-webkit-full-screen canvas{height:100% !important;max-width:100%;min-width:0;width:auto}.ejs--7a5f920ceffb2913f6dbda780573cf:-webkit-full-screen .ejs--057800d021995e1347ec07cb748672{height:100%;width:100%}.ejs--7a5f920ceffb2913f6dbda780573cf:-webkit-full-screen .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e{display:block}.ejs--7a5f920ceffb2913f6dbda780573cf:-webkit-full-screen .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e+svg{display:none}.ejs--7a5f920ceffb2913f6dbda780573cf:-moz-full-screen{background:#000;border-radius:0 !important;height:100%;margin:0;width:100%}.ejs--7a5f920ceffb2913f6dbda780573cf:-moz-full-screen canvas{height:100% !important;max-width:100%;min-width:0;width:auto}.ejs--7a5f920ceffb2913f6dbda780573cf:-moz-full-screen .ejs--057800d021995e1347ec07cb748672{height:100%;width:100%}.ejs--7a5f920ceffb2913f6dbda780573cf:-moz-full-screen .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e{display:block}.ejs--7a5f920ceffb2913f6dbda780573cf:-moz-full-screen .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e+svg{display:none}.ejs--7a5f920ceffb2913f6dbda780573cf:-ms-fullscreen{background:#000;border-radius:0 !important;height:100%;margin:0;width:100%}.ejs--7a5f920ceffb2913f6dbda780573cf:-ms-fullscreen canvas{height:100% !important;max-width:100%;min-width:0;width:auto}.ejs--7a5f920ceffb2913f6dbda780573cf:-ms-fullscreen .ejs--057800d021995e1347ec07cb748672{height:100%;width:100%}.ejs--7a5f920ceffb2913f6dbda780573cf:-ms-fullscreen .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e{display:block}.ejs--7a5f920ceffb2913f6dbda780573cf:-ms-fullscreen .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e+svg{display:none}.ejs--412041671de21945d3e028b6ae84c9{background:#000;border-radius:0 !important;height:100%;margin:0;width:100%;bottom:0;left:0;position:fixed;right:0;top:0;z-index:10000000}.ejs--412041671de21945d3e028b6ae84c9 canvas{height:100% !important;max-width:100%;min-width:0;width:auto}.ejs--412041671de21945d3e028b6ae84c9 .ejs--057800d021995e1347ec07cb748672{height:100%;width:100%}.ejs--412041671de21945d3e028b6ae84c9 .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e{display:block}.ejs--412041671de21945d3e028b6ae84c9 .ejs--8732295ca5c4902a060d34706a8146 .ejs--2b3dd6e2e26c0f0dc4ac5779dedd5e+svg{display:none}.ejs--7a5f920ceffb2913f6dbda780573cf.ejs--64f1256f556fb94454b930cb3ea7f2:fullscreen canvas{width:100%;height:auto !important}.ejs--7a5f920ceffb2913f6dbda780573cf.ejs--64f1256f556fb94454b930cb3ea7f2:-webkit-full-screen canvas{width:100%;height:auto !important}.ejs--7a5f920ceffb2913f6dbda780573cf.ejs--64f1256f556fb94454b930cb3ea7f2:-moz-full-screen{width:100%;height:auto !important}.ejs--7a5f920ceffb2913f6dbda780573cf.ejs--64f1256f556fb94454b930cb3ea7f2:-ms-fullscreen{width:100%;height:auto !important}.ejs--33643265135cf89e6c0a0d9866d6f1{transition:none !important}.ejs--6f0e996cd15e5fb6be0256918531d7{clip:rect(1px, 1px, 1px, 1px);overflow:hidden;border:0 !important;height:1px !important;padding:0 !important;position:absolute !important;width:1px !important}.ejs--7a5f920ceffb2913f6dbda780573cf [hidden]{display:none !important}</style></head>
   <body>
-    <iframe width="100%" height="100%" frameBorder="0" scrolling="no">
-      <html>
-        <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.TenOR_lLL28.O/m=gapi_rpc/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCMCcuroc7gdKSyRrVMzYC23sHf_SA/cb=gapi.loaded_0?le=oz" async=""></script><script src="https://apis.google.com/js/api.js?checkCookie=1" gapi_processed="true"></script></head>
+    <div style="width:100vw;height:100vh;max-width:none;position:absolute;top:0px;left:0px;">
+        <div class="ejs--7a5f920ceffb2913f6dbda780573cf ejs--f3a002bba9836fe4ebfed357a45521 ejs--d5f430a99a1619b3434bf58e34a99c ejs--19409fe2057ab935a7e46abb5b4f49 ejs--7da7949f602347007818e6d192eb23 ejs--1b8cb7f2294b1eb5de5238daea3513" tabindex="0"><div class="ejs--1acedc5ed6816abe96dd27d910fd74" data-timer="31"><button type="button" class="ejs--8732295ca5c4902a060d34706a8146"><svg role="presentation" focusable="false"><path d="M9.7 1.2l.7 6.4 2.1-2.1c1.9 1.9 1.9 5.1 0 7-.9 1-2.2 1.5-3.5 1.5-1.3 0-2.6-.5-3.5-1.5-1.9-1.9-1.9-5.1 0-7 .6-.6 1.4-1.1 2.3-1.3l-.6-1.9C6 2.6 4.9 3.2 4 4.1 1.3 6.8 1.3 11.2 4 14c1.3 1.3 3.1 2 4.9 2 1.9 0 3.6-.7 4.9-2 2.7-2.7 2.7-7.1 0-9.9L16 1.9l-6.3-.7z"></path></svg><span class="ejs--74c6d4176d27e37a19d2e9e61de8f4">Restart</span></button><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--b1238136ec472a92297159882cf4b8" data-btn="play"><svg class="ejs--ec731619062226d943da67f5d83009" role="presentation" focusable="false"><path d="M6 1H3c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1zM12 1c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1h-3z"></path></svg><svg class="ejs--dc7068585e3d84fe0e676864c1439e" role="presentation" focusable="false"><path d="M15.562 8.1L3.87.225C3.052-.337 2 .225 2 1.125v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z"></path></svg><span class="ejs--ec731619062226d943da67f5d83009 ejs--74c6d4176d27e37a19d2e9e61de8f4">Pause</span><span class="ejs--dc7068585e3d84fe0e676864c1439e ejs--74c6d4176d27e37a19d2e9e61de8f4">Play</span></button><button aria-expanded="false" type="button" class="ejs--8732295ca5c4902a060d34706a8146" data-btn="save-state"><svg role="presentation" focusable="false"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z"></path></svg></svg><span class="ejs--74c6d4176d27e37a19d2e9e61de8f4">Save State (Shift + F2)</span></button><button aria-haspopup="true" aria-expanded="false" type="button" class="ejs--8732295ca5c4902a060d34706a8146" data-btn="load-state"><svg role="presentation" focusable="false"><svg viewBox="0 0 576 512"><path fill="currentColor" d="M572.694 292.093L500.27 416.248A63.997 63.997 0 0 1 444.989 448H45.025c-18.523 0-30.064-20.093-20.731-36.093l72.424-124.155A64 64 0 0 1 152 256h399.964c18.523 0 30.064 20.093 20.73 36.093zM152 224h328v-48c0-26.51-21.49-48-48-48H272l-64-64H48C21.49 64 0 85.49 0 112v278.046l69.077-118.418C86.214 242.25 117.989 224 152 224z"></path></svg></svg><span class="ejs--74c6d4176d27e37a19d2e9e61de8f4">Load State (Shift + F4)</span></button><button aria-haspopup="true" aria-expanded="false" style="margin-right:auto;" type="button" class="ejs--8732295ca5c4902a060d34706a8146" data-btn="screen-record"><svg role="presentation" focusable="false"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" ,viewbox="0 0 39.989 39.989" style="enable-background:new 0 0 39.989 39.989;" xml:space="preserve"><path id="XMLID_155_" d="M19.994,0C8.952,0,0,8.952,0,19.995c0,11.043,8.952,19.994,19.994,19.994s19.995-8.952,19.995-19.994,C39.989,8.952,31.037,0,19.994,0z M19.994,27.745c-4.28,0-7.75-3.47-7.75-7.75s3.47-7.75,7.75-7.75s7.75,3.47,7.75,7.75,S24.275,27.745,19.994,27.745z"></path></svg></svg><span class="ejs--74c6d4176d27e37a19d2e9e61de8f4">Start Screen Recording</span></button><button aria-haspopup="true" aria-expanded="false" type="button" class="ejs--8732295ca5c4902a060d34706a8146" data-btn="netplay"><svg role="presentation" focusable="false"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M364.215 192h131.43c5.439 20.419 8.354 41.868 8.354 64s-2.915 43.581-8.354 64h-131.43c5.154-43.049 4.939-86.746 0-128zM185.214 352c10.678 53.68 33.173 112.514 70.125 151.992.221.001.44.008.661.008s.44-.008.661-.008c37.012-39.543 59.467-98.414 70.125-151.992H185.214zm174.13-192h125.385C452.802 84.024 384.128 27.305 300.95 12.075c30.238 43.12 48.821 96.332 58.394 147.925zm-27.35 32H180.006c-5.339 41.914-5.345 86.037 0 128h151.989c5.339-41.915 5.345-86.037-.001-128zM152.656 352H27.271c31.926 75.976 100.6 132.695 183.778 147.925-30.246-43.136-48.823-96.35-58.393-147.925zm206.688 0c-9.575 51.605-28.163 104.814-58.394 147.925 83.178-15.23 151.852-71.949 183.778-147.925H359.344zm-32.558-192c-10.678-53.68-33.174-112.514-70.125-151.992-.221 0-.44-.008-.661-.008s-.44.008-.661.008C218.327 47.551 195.872 106.422 185.214 160h141.572zM16.355 192C10.915 212.419 8 233.868 8 256s2.915 43.581 8.355 64h131.43c-4.939-41.254-5.154-84.951 0-128H16.355zm136.301-32c9.575-51.602 28.161-104.81 58.394-147.925C127.872 27.305 59.198 84.024 27.271 160h125.385z"></path></svg></svg><span class="ejs--74c6d4176d27e37a19d2e9e61de8f4">Netplay</span></button><button aria-haspopup="true" aria-expanded="false" style="margin-right:auto;" type="button" class="ejs--8732295ca5c4902a060d34706a8146" data-btn="gamepad"><svg role="presentation" focusable="false"><svg viewBox="0 0 640 512"><path fill="currentColor" d="M480 96H160C71.6 96 0 167.6 0 256s71.6 160 160 160c44.8 0 85.2-18.4 114.2-48h91.5c29 29.6 69.5 48 114.2 48 88.4 0 160-71.6 160-160S568.4 96 480 96zM256 276c0 6.6-5.4 12-12 12h-52v52c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-52H76c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h52v-52c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h52c6.6 0 12 5.4 12 12v40zm184 68c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-80c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"></path></svg></svg><span class="ejs--74c6d4176d27e37a19d2e9e61de8f4">Control Settings</span></button><button aria-haspopup="true" aria-expanded="false" style="margin-right:auto;" type="button" class="ejs--8732295ca5c4902a060d34706a8146" data-btn="cheat"><svg role="presentation" focusable="false"><svg viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm4 72.6c-20.8 25-51.5 39.4-84 39.4s-63.2-14.3-84-39.4c-8.5-10.2-23.7-11.5-33.8-3.1-10.2 8.5-11.5 23.6-3.1 33.8 30 36 74.1 56.6 120.9 56.6s90.9-20.6 120.9-56.6c8.5-10.2 7.1-25.3-3.1-33.8-10.1-8.4-25.3-7.1-33.8 3.1z" class=""></path></svg></svg><span class="ejs--74c6d4176d27e37a19d2e9e61de8f4">Cheats</span></button><span style="flex:1"></span><div class="ejs--36ceeeec0df37a9cf4bbe05fa204ec"><button type="button" class="ejs--8732295ca5c4902a060d34706a8146" data-btn="mute"><svg class="ejs--ec731619062226d943da67f5d83009" role="presentation" focusable="false"><path d="M12.4 12.5l2.1-2.1 2.1 2.1 1.4-1.4L15.9 9 18 6.9l-1.4-1.4-2.1 2.1-2.1-2.1L11 6.9 13.1 9 11 11.1zM3.786 6.008H.714C.286 6.008 0 6.31 0 6.76v4.512c0 .452.286.752.714.752h3.072l4.071 3.858c.5.3 1.143 0 1.143-.602V2.752c0-.601-.643-.977-1.143-.601L3.786 6.008z"></path></svg><svg class="ejs--dc7068585e3d84fe0e676864c1439e" role="presentation" focusable="false"><path d="M15.5999996,3.3 C15.1999996,2.9 14.5999996,2.9 14.1999996,3.3 C13.7999996,3.7 13.7999996,4.3 14.1999996,4.7 C15.3999996,5.9 15.9999996,7.4 15.9999996,9 C15.9999996,10.6 15.3999996,12.1 14.1999996,13.3 C13.7999996,13.7 13.7999996,14.3 14.1999996,14.7 C14.3999996,14.9 14.6999996,15 14.8999996,15 C15.1999996,15 15.3999996,14.9 15.5999996,14.7 C17.0999996,13.2 17.9999996,11.2 17.9999996,9 C17.9999996,6.8 17.0999996,4.8 15.5999996,3.3 L15.5999996,3.3 Z"></path><path d="M11.2819745,5.28197449 C10.9060085,5.65794047 10.9060085,6.22188944 11.2819745,6.59785542 C12.0171538,7.33303477 12.2772954,8.05605449 12.2772954,9.00000021 C12.2772954,9.93588462 11.851678,10.9172014 11.2819745,11.4869049 C10.9060085,11.8628709 10.9060085,12.4268199 11.2819745,12.8027859 C11.4271642,12.9479755 11.9176724,13.0649528 12.2998149,12.9592565 C12.4124479,12.9281035 12.5156669,12.8776063 12.5978555,12.8027859 C13.773371,11.732654 14.1311161,10.1597914 14.1312523,9.00000021 C14.1312723,8.8299555 14.1286311,8.66015647 14.119665,8.4897429 C14.0674781,7.49784946 13.8010171,6.48513613 12.5978554,5.28197449 C12.2218894,4.9060085 11.6579405,4.9060085 11.2819745,5.28197449 Z"></path><path d="M3.78571429,6.00820648 L0.714285714,6.00820648 C0.285714286,6.00820648 0,6.30901277 0,6.76022222 L0,11.2723167 C0,11.7235261 0.285714286,12.0243324 0.714285714,12.0243324 L3.78571429,12.0243324 L7.85714286,15.8819922 C8.35714286,16.1827985 9,15.8819922 9,15.2803796 L9,2.75215925 C9,2.15054666 8.35714286,1.77453879 7.85714286,2.15054666 L3.78571429,6.00820648 Z"></path></svg><span class="ejs--ec731619062226d943da67f5d83009 ejs--74c6d4176d27e37a19d2e9e61de8f4">Unmute (F9)</span><span class="ejs--dc7068585e3d84fe0e676864c1439e ejs--74c6d4176d27e37a19d2e9e61de8f4">Mute (F9)</span></button><input data-range="volume" type="range" min="0" max="1" step="0.01" value="0.5" autocomplete="off" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--value:50%;" aria-valuetext="50.0%"></div><div class="ejs--c7bfb2d1b75a40fdaaf90624bea9e7"><button aria-haspopup="true" aria-expanded="false" type="button" class="ejs--8732295ca5c4902a060d34706a8146" data-btn="settings"><svg role="presentation" focusable="false"><path d="M16.135 7.784a2 2 0 0 1-1.23-2.969c.322-.536.225-.998-.094-1.316l-.31-.31c-.318-.318-.78-.415-1.316-.094a2 2 0 0 1-2.969-1.23C10.065 1.258 9.669 1 9.219 1h-.438c-.45 0-.845.258-.997.865a2 2 0 0 1-2.969 1.23c-.536-.322-.999-.225-1.317.093l-.31.31c-.318.318-.415.781-.093 1.317a2 2 0 0 1-1.23 2.969C1.26 7.935 1 8.33 1 8.781v.438c0 .45.258.845.865.997a2 2 0 0 1 1.23 2.969c-.322.536-.225.998.094 1.316l.31.31c.319.319.782.415 1.316.094a2 2 0 0 1 2.969 1.23c.151.607.547.865.997.865h.438c.45 0 .845-.258.997-.865a2 2 0 0 1 2.969-1.23c.535.321.997.225 1.316-.094l.31-.31c.318-.318.415-.781.094-1.316a2 2 0 0 1 1.23-2.969c.607-.151.865-.547.865-.997v-.438c0-.451-.26-.846-.865-.997zM9 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path></svg><span class="ejs--74c6d4176d27e37a19d2e9e61de8f4">Settings</span></button><div class="ejs--013213afedeeb6878089b1ca1b4e47" hidden=""><div><div data-pane="home"><div role="menu" style="max-height: 309px; overflow: auto;"><button data-btn="settings" type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--0b4cdb4057d1a4623e60836ccc6275" role="menuitem" item="shader" aria-haspopup="true"><span>Shader<span class="ejs--f91e90fe7cabc875aff9a431bf5389">Disabled</span></span></button><button data-btn="settings" type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--0b4cdb4057d1a4623e60836ccc6275" role="menuitem" item="glupen64-aspect" aria-haspopup="true"><span>Aspect Ratio (Need to refresh page)<span class="ejs--f91e90fe7cabc875aff9a431bf5389">4:3</span></span></button><button data-btn="settings" type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--0b4cdb4057d1a4623e60836ccc6275" role="menuitem" item="glupen64-43screensize" aria-haspopup="true"><span>4:3 Resolution<span class="ejs--f91e90fe7cabc875aff9a431bf5389">320x240</span></span></button><button data-btn="settings" type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--0b4cdb4057d1a4623e60836ccc6275" role="menuitem" item="glupen64-169screensize" aria-haspopup="true"><span>16:9 Resolution<span class="ejs--f91e90fe7cabc875aff9a431bf5389">640x360</span></span></button><button data-btn="settings" type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--0b4cdb4057d1a4623e60836ccc6275" role="menuitem" item="glupen64-pak1" aria-haspopup="true"><span>Player 1 Pak<span class="ejs--f91e90fe7cabc875aff9a431bf5389">none</span></span></button><button data-btn="settings" type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--0b4cdb4057d1a4623e60836ccc6275" role="menuitem" item="glupen64-pak2" aria-haspopup="true"><span>Player 2 Pak<span class="ejs--f91e90fe7cabc875aff9a431bf5389">none</span></span></button><button data-btn="settings" type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--0b4cdb4057d1a4623e60836ccc6275" role="menuitem" item="glupen64-pak3" aria-haspopup="true"><span>Player 3 Pak<span class="ejs--f91e90fe7cabc875aff9a431bf5389">none</span></span></button><button data-btn="settings" type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--0b4cdb4057d1a4623e60836ccc6275" role="menuitem" item="glupen64-pak4" aria-haspopup="true"><span>Player 4 Pak<span class="ejs--f91e90fe7cabc875aff9a431bf5389">none</span></span></button><button data-btn="settings" type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--0b4cdb4057d1a4623e60836ccc6275" role="menuitem" item="save-state-slot" aria-haspopup="true"><span>Save State Slot<span class="ejs--f91e90fe7cabc875aff9a431bf5389">1</span></span></button></div></div><div data-pane="shader" hidden=""><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--a7ad9de0cb0ca672b6703c50de7db9"><span aria-hidden="true">Shader</span><span class="ejs--6f0e996cd15e5fb6be0256918531d7">Go back to previous menu</span></button><div role="menu" style="max-height: 309px; overflow: auto;"><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="true" value="disabled"><span>Disabled</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="2xScaleHQ.glslp"><span>2xScaleHQ</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="4xScaleHQ.glslp"><span>4xScaleHQ</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="crt-easymode.glslp"><span>CRT easymode</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="crt-aperture.glslp"><span>CRT aperture</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="crt-geom.glslp"><span>CRT geom</span></button></div></div><div data-pane="glupen64-aspect" hidden=""><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--a7ad9de0cb0ca672b6703c50de7db9"><span aria-hidden="true">Aspect Ratio (Need to refresh page)</span><span class="ejs--6f0e996cd15e5fb6be0256918531d7">Go back to previous menu</span></button><div role="menu" style="max-height: 309px; overflow: auto;"><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="true" value="4:3"><span>4:3</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="16:9"><span>16:9</span></button></div></div><div data-pane="glupen64-43screensize" hidden=""><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--a7ad9de0cb0ca672b6703c50de7db9"><span aria-hidden="true">4:3 Resolution</span><span class="ejs--6f0e996cd15e5fb6be0256918531d7">Go back to previous menu</span></button><div role="menu" style="max-height: 309px; overflow: auto;"><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="true" value="320x240"><span>320x240</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="640x480"><span>640x480</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="960x720"><span>960x720</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="1280x960"><span>1280x960</span></button></div></div><div data-pane="glupen64-169screensize" hidden=""><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--a7ad9de0cb0ca672b6703c50de7db9"><span aria-hidden="true">16:9 Resolution</span><span class="ejs--6f0e996cd15e5fb6be0256918531d7">Go back to previous menu</span></button><div role="menu" style="max-height: 309px; overflow: auto;"><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="true" value="640x360"><span>640x360</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="960x540"><span>960x540</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="1280x720"><span>1280x720</span></button></div></div><div data-pane="glupen64-pak1" hidden=""><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--a7ad9de0cb0ca672b6703c50de7db9"><span aria-hidden="true">Player 1 Pak</span><span class="ejs--6f0e996cd15e5fb6be0256918531d7">Go back to previous menu</span></button><div role="menu" style="max-height: 309px; overflow: auto;"><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="true" value="none"><span>none</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="memory"><span>memory</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="rumble"><span>rumble</span></button></div></div><div data-pane="glupen64-pak2" hidden=""><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--a7ad9de0cb0ca672b6703c50de7db9"><span aria-hidden="true">Player 2 Pak</span><span class="ejs--6f0e996cd15e5fb6be0256918531d7">Go back to previous menu</span></button><div role="menu" style="max-height: 309px; overflow: auto;"><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="true" value="none"><span>none</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="memory"><span>memory</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="rumble"><span>rumble</span></button></div></div><div data-pane="glupen64-pak3" hidden=""><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--a7ad9de0cb0ca672b6703c50de7db9"><span aria-hidden="true">Player 3 Pak</span><span class="ejs--6f0e996cd15e5fb6be0256918531d7">Go back to previous menu</span></button><div role="menu" style="max-height: 309px; overflow: auto;"><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="true" value="none"><span>none</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="memory"><span>memory</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="rumble"><span>rumble</span></button></div></div><div data-pane="glupen64-pak4" hidden=""><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--a7ad9de0cb0ca672b6703c50de7db9"><span aria-hidden="true">Player 4 Pak</span><span class="ejs--6f0e996cd15e5fb6be0256918531d7">Go back to previous menu</span></button><div role="menu" style="max-height: 309px; overflow: auto;"><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="true" value="none"><span>none</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="memory"><span>memory</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="rumble"><span>rumble</span></button></div></div><div data-pane="save-state-slot" hidden=""><button type="button" class="ejs--8732295ca5c4902a060d34706a8146 ejs--a7ad9de0cb0ca672b6703c50de7db9"><span aria-hidden="true">Save State Slot</span><span class="ejs--6f0e996cd15e5fb6be0256918531d7">Go back to previous menu</span></button><div role="menu" style="max-height: 309px; overflow: auto;"><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="true" value="1"><span>1</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="2"><span>2</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="3"><span>3</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="4"><span>4</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="5"><span>5</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="6"><span>6</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="7"><span>7</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="8"><span>8</span></button><button type="button" role="menuitemradio" class="ejs--8732295ca5c4902a060d34706a8146 " aria-checked="false" value="9"><span>9</span></button></div></div></div></div></div><button type="button" class="ejs--8732295ca5c4902a060d34706a8146" data-btn="fullscreen"><svg class="ejs--ec731619062226d943da67f5d83009" role="presentation" focusable="false"><path d="M1 12h3.6l-4 4L2 17.4l4-4V17h2v-7H1zM16 .6l-4 4V1h-2v7h7V6h-3.6l4-4z"></path></svg><svg class="ejs--dc7068585e3d84fe0e676864c1439e" role="presentation" focusable="false"><path d="M10 3h3.6l-4 4L11 8.4l4-4V8h2V1h-7zM7 9.6l-4 4V10H1v7h7v-2H4.4l4-4z"></path></svg><span class="ejs--ec731619062226d943da67f5d83009 ejs--74c6d4176d27e37a19d2e9e61de8f4">Exit fullscreen</span><span class="ejs--dc7068585e3d84fe0e676864c1439e ejs--74c6d4176d27e37a19d2e9e61de8f4">Enter fullscreen</span></button></div><div class="ejs--057800d021995e1347ec07cb748672"><div id="game"><canvas width="800" height="600"></canvas></div></div><div class="ejs--952c974392296e7f643d51db380157"><div class="ejs--0d7e216cf12ae73705b5d5bb0452fc ejs--c0a5e71f6613caab66d6ae15a5a00f"><ul></ul></div></div><div class="ejs--d31688f864f56d6426ebbf2217d6ee"><div class="ejs--5e71fd80268afbb1d588e40b993508 ejs--1e0f0672f67d0e96592314c9ed78b0" hidden="">
+        <div class="ejs--38cc09882a55e98c76168dbe838aa0">
+            <div class="ejs--b373c9d5029d49324fb8ac3ece96c1">
+                <h4>Cache Manager</h4>
+            </div>
+            <div class="ejs--a5e2629abb9a5bcbc8b2c1307922d2">
+
+            </div>
+            <div class="ejs--580e3c22e63f8a1eb29694fd0b141b">
+                <a href="#" onclick="return false" class="ejs--ad20569e1449d7b8e99e6465960456">Close</a>
+            </div>
+        </div>
+        </div><div class="ejs--5e71fd80268afbb1d588e40b993508 ejs--d7e6a6a8f38bfaa256fe5d709a8258" hidden="">
+            <div class="ejs--eefec939452eb92fad035932d0f47c ejs--bef295f3125e9ba83d4f3677264bae" id="modal-6ed698f3d04061f5" aria-hidden="true">
+                <div class="ejs--f1f43b27384834c8c22c6f81d0c5ae" tabindex="-1">
+                <div class="ejs--c4ee33766a01ed0356c3ec07898e96" role="dialog" aria-modal="true" aria-labelledby="modal-6ed698f3d04061f5-title">
+                Loading...
+                </div>
+                </div>
+            </div></div><div class="ejs--5e71fd80268afbb1d588e40b993508 ejs--b183f581b5336c4908ad258d3e1cc7" hidden=""><div></div></div><div class="ejs--5e71fd80268afbb1d588e40b993508 ejs--b183f581b5336cashrqd258d3e1cc7" hidden=""><div></div></div><div class="ejs--5e71fd80268afbb1d588e40b993508 ejs--158ea9dd34e3e7af2d837f8b05babb" hidden="">
+            <div class="ejs--38cc09882a55e98c76168dbe838aa0">
+                <div class="ejs--b373c9d5029d49324fb8ac3ece96c1">
+                    <h4>Netplay</h4>
+                </div>
+                <div class="ejs--a5e2629abb9a5bcbc8b2c1307922d2">
+                    <div class="ejs--d6a46533fa6e510a571af5c28b440a" hidden="">
+                        <strong>Rooms</strong>
+                        <table style="width:100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <td>Room Name</td>
+                                    <td>Players</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="ejs--eefdf28d69ed2d20f197308981bb61" hidden="">
+                        <strong>Room Name</strong>
+                        <div data-room-password="">Password: <span></span></div>
+                        <table style="width:100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <td>Player</td>
+                                <td>Name</td>
+                                <td></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Name 1</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Name 2</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Name 3</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Name 4</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="ejs--580e3c22e63f8a1eb29694fd0b141b">
+                    <a href="#" onclick="return false" class="ejs--c2d931157456c1d438d40a2f66af2c">Quit Room</a>
+                    <a href="#" onclick="return false" class="ejs--67d03ee7480b871ad6507d6319a839">Create a Room</a>
+                    <a href="#" onclick="return false" class="ejs--ad20569e1449d7b8e99e6465960456">Close</a>
+                </div>
+            </div>
+
+            
+            <div class="ejs--eefec939452eb92fad035932d0f47c ejs--bef295f3125e9ba83d4f3677264bae" id="modal-9de6c4e9ce2b9361" aria-hidden="true">
+                <div class="ejs--f1f43b27384834c8c22c6f81d0c5ae" tabindex="-1">
+                <div class="ejs--c4ee33766a01ed0356c3ec07898e96" role="dialog" aria-modal="true" aria-labelledby="modal-9de6c4e9ce2b9361-title">
+                    <div class="ejs--a073f32023da1ced805c5f95a4e81c">
+                    <h2 class="ejs--81470ba5e6a6d68014839ad4d9a977" id="modal-9de6c4e9ce2b9361-title">
+                        Set Player Name
+                    </h2>
+                    </div>
+                    <main class="ejs--db44f5520e6f4fd0dd34b478bb9ee8" id="modal-9de6c4e9ce2b9361-content">
+
+                        <div class="ejs--940087708c06b6129ce2bfa45f1d89"></div>
+                        <strong>Player Name</strong><br>
+                        <input type="text" maxlength="10" class="ejs--71527b6509aa48afce3ce1a11c02f0"><br>
+
+                    </main>
+                    <footer class="ejs--ed44f59bb8cd49177586b140658c6c">
+                    <button class="ejs--319bcec5dee9444e1a2a53d6503b7c ejs--eaf3c1cba25d415d92ac48d7db34dd">Submit</button>
+                    </footer>
+                </div>
+                </div>
+            </div>
+            
+            <div class="ejs--eefec939452eb92fad035932d0f47c ejs--bef295f3125e9ba83d4f3677264bae" id="modal-85cd7a1c543a484a" aria-hidden="true">
+                <div class="ejs--f1f43b27384834c8c22c6f81d0c5ae" tabindex="-1" data-modal-close="">
+                <div class="ejs--c4ee33766a01ed0356c3ec07898e96" role="dialog" aria-modal="true" aria-labelledby="modal-85cd7a1c543a484a-title">
+                    <div class="ejs--a073f32023da1ced805c5f95a4e81c">
+                    <h2 class="ejs--81470ba5e6a6d68014839ad4d9a977" id="modal-85cd7a1c543a484a-title">
+                    Create a Room
+                    </h2>
+                    <button class="ejs--c3c85789c2a7f56d8b26dba75b7e1f" aria-label="Close modal" data-modal-close=""></button>
+                    </div>
+                    <main class="ejs--db44f5520e6f4fd0dd34b478bb9ee8" id="modal-85cd7a1c543a484a-content">
+
+                        <div class="ejs--940087708c06b6129ce2bfa45f1d89"></div>
+                        <strong>Room Name</strong><br>
+                        <input type="text" maxlength="10" class="ejs--0885d5e25e19127b6b516014426a1b"><br>
+                        <strong>Max Players</strong><br>
+                        <select data-max-players="">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <br>
+                        <strong>Password (Optional)</strong><br>
+                        <input type="text" maxlength="10" class="ejs--25023d28756fdb9dfbbfb6dccb8677"><br>
+
+                    </main>
+                    <footer class="ejs--ed44f59bb8cd49177586b140658c6c">
+                    <button class="ejs--319bcec5dee9444e1a2a53d6503b7c ejs--eaf3c1cba25d415d92ac48d7db34dd">Submit</button>
+                    <button class="ejs--319bcec5dee9444e1a2a53d6503b7c" data-modal-close="" aria-label="Close">Close</button>
+                    </footer>
+                </div>
+                </div>
+            </div>
+            
+            <div class="ejs--eefec939452eb92fad035932d0f47c ejs--bef295f3125e9ba83d4f3677264bae" id="modal-5aa765d61d8327de" aria-hidden="true">
+                <div class="ejs--f1f43b27384834c8c22c6f81d0c5ae" tabindex="-1" data-modal-close="">
+                <div class="ejs--c4ee33766a01ed0356c3ec07898e96" role="dialog" aria-modal="true" aria-labelledby="modal-5aa765d61d8327de-title">
+                    <div class="ejs--a073f32023da1ced805c5f95a4e81c">
+                    <h2 class="ejs--81470ba5e6a6d68014839ad4d9a977" id="modal-5aa765d61d8327de-title">
+                        Password
+                    </h2>
+                    <button class="ejs--c3c85789c2a7f56d8b26dba75b7e1f" aria-label="Close modal" data-modal-close=""></button>
+                    </div>
+                    <main class="ejs--db44f5520e6f4fd0dd34b478bb9ee8" id="modal-5aa765d61d8327de-content">
+
+                        <div class="ejs--940087708c06b6129ce2bfa45f1d89"></div>
+                        <input type="text" maxlength="10" class="ejs--25023d28756fdb9dfbbfb6dccb8677"><br>
+
+                    </main>
+                    <footer class="ejs--ed44f59bb8cd49177586b140658c6c">
+                    <button class="ejs--319bcec5dee9444e1a2a53d6503b7c ejs--eaf3c1cba25d415d92ac48d7db34dd">Submit</button>
+                    <button class="ejs--319bcec5dee9444e1a2a53d6503b7c" data-modal-close="" aria-label="Close">Close</button>
+                    </footer>
+                </div>
+                </div>
+            </div>
+            
+            
+            <div class="ejs--eefec939452eb92fad035932d0f47c ejs--bef295f3125e9ba83d4f3677264bae" id="modal-7d8fd50ed642340b" aria-hidden="true">
+                <div class="ejs--f1f43b27384834c8c22c6f81d0c5ae" tabindex="-1" data-modal-close="">
+                <div class="ejs--c4ee33766a01ed0356c3ec07898e96" role="dialog" aria-modal="true" aria-labelledby="modal-7d8fd50ed642340b-title">
+                    <div class="ejs--a073f32023da1ced805c5f95a4e81c">
+                    <h2 class="ejs--81470ba5e6a6d68014839ad4d9a977" id="modal-7d8fd50ed642340b-title"></h2>
+                    <button class="ejs--c3c85789c2a7f56d8b26dba75b7e1f" aria-label="Close modal" data-modal-close=""></button>
+                    </div>
+                    <main class="ejs--db44f5520e6f4fd0dd34b478bb9ee8" id="modal-7d8fd50ed642340b-content">
+                        
+                    </main>
+                    <footer class="ejs--ed44f59bb8cd49177586b140658c6c">
+                    <button class="ejs--319bcec5dee9444e1a2a53d6503b7c ejs--eaf3c1cba25d415d92ac48d7db34dd" data-modal-close="">OK</button>
+                    </footer>
+                </div>
+                </div>
+            </div>
+            
+            </div><div class="ejs--5e71fd80268afbb1d588e40b993508 ejs--3f0897a8158ba363a0ee0afe4da7c5" hidden="">
+        <div class="ejs--38cc09882a55e98c76168dbe838aa0">
+            <div class="ejs--b373c9d5029d49324fb8ac3ece96c1">
+                <h4>Control Settings</h4>
+            </div>
+            
+            <ul class="ejs--8e7922427f460a31935084b7acfb1a" id="controls-tabs">
+                <li class="tabs-title ejs--68d337c212ec6a5bc43125440d422b" role="presentation"><a href="#" onclick="return false" role="tab" aria-controls="controls-0" aria-selected="false" id="controls-0-label">Player 1</a></li>
+                <li class="tabs-title" role="presentation"><a href="#" onclick="return false" role="tab" aria-controls="controls-1" aria-selected="false" id="controls-1-label">Player 2</a></li>
+                <li class="tabs-title" role="presentation"><a href="#" onclick="return false" role="tab" aria-controls="controls-2" aria-selected="false" id="controls-2-label">Player 3</a></li>
+                <li class="tabs-title" role="presentation"><a href="#" onclick="return false" role="tab" aria-controls="controls-3" aria-selected="false" id="controls-3-label">Player 4</a></li>
+            </ul>
+            <div class="ejs--a5e2629abb9a5bcbc8b2c1307922d2">
+            <div class="ejs--31eb28817642bb1bfe0a2c422108bb controls">
+                
+            
+        <div class="ejs--f932566a0af5314da834324c901978" id="controls-0">
+            <div>
+                <div style="">
+                    <div class="gamepad" style="font-size:12px">Connected gamepad: <span class="gamepad-name">n/a</span></div>
+                </div>
+                <div style="width:25%;float:left">&nbsp;</div>
+                <div style="font-size:12px;width:50%;float:left">
+                    <div class="row">
+                        <div style="text-align:center;width:50%;float:left">Gamepad</div>
+                        <div style="text-align:center;width:50%;float:left">Keyboard</div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
         
-        <body data-new-gr-c-s-check-loaded="14.1049.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1049.0">
-        <iframe id="innerFrame" name="innerFrame" sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads" frameborder="0" allowfullscreen="" src="n64.endinternetcensorship.repl.co/emu/ssb.html" style="overflow: auto;">
-        </iframe>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="3" data-index="0" data-label="START" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>START:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="3" data-value="9" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="3" data-value="13" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="4" data-index="0" data-label="UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="4" data-value="12" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="4" data-value="38" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="5" data-index="0" data-label="DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="5" data-value="13" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="5" data-value="40" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="6" data-index="0" data-label="LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="6" data-value="14" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="6" data-value="37" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="7" data-index="0" data-label="RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="7" data-value="15" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="7" data-value="39" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="8" data-index="0" data-label="A" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>A:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="8" data-value="0" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="8" data-value="90" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="0" data-index="0" data-label="B" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>B:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="0" data-value="1" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="0" data-value="88" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="10" data-index="0" data-label="L" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="10" data-value="4" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="10" data-value="81" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="11" data-index="0" data-label="R" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="11" data-value="5" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="11" data-value="69" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="12" data-index="0" data-label="Z" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>Z:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="12" data-value="6" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="12" data-value="82" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="19" data-index="0" data-label="L STICK UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="19" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="19" data-value="84" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="18" data-index="0" data-label="L STICK DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="18" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="18" data-value="71" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="17" data-index="0" data-label="L STICK LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="17" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="17" data-value="70" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="16" data-index="0" data-label="L STICK RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="16" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="16" data-value="72" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="23" data-index="0" data-label="R STICK UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="23" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="23" data-value="73" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="22" data-index="0" data-label="R STICK DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="22" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="22" data-value="75" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="21" data-index="0" data-label="R STICK LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="21" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="21" data-value="74" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="20" data-index="0" data-label="R STICK RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="20" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="20" data-value="76" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="24" data-index="0" data-label="QUICK SAVE STATE" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>QUICK SAVE STATE:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="24" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="24" data-value="" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="25" data-index="0" data-label="QUICK LOAD STATE" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>QUICK LOAD STATE:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="25" data-value="" data-type="2" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="25" data-value="" data-type="1" data-index="0" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div></div>
+        <div class="ejs--f932566a0af5314da834324c901978" id="controls-1" hidden="">
+            <div>
+                <div style="">
+                    <div class="gamepad" style="font-size:12px">Connected gamepad: <span class="gamepad-name">n/a</span></div>
+                </div>
+                <div style="width:25%;float:left">&nbsp;</div>
+                <div style="font-size:12px;width:50%;float:left">
+                    <div class="row">
+                        <div style="text-align:center;width:50%;float:left">Gamepad</div>
+                        <div style="text-align:center;width:50%;float:left">Keyboard</div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
         
-        <script>function loadGapi(){var loaderScript=document.createElement('script');loaderScript.setAttribute('src','https://apis.google.com/js/api.js?checkCookie=1');loaderScript.onload=function(){this.onload=function(){};loadGapiClient();};loaderScript.onreadystatechange=function(){if(this.readyState==='complete'){this.onload();}};(document.head||document.body||document.documentElement).appendChild(loaderScript);}function updateInnerFrame(url,enableInteraction,forceIosScrolling){var urlEl=document.createElement('a');urlEl.setAttribute('href',url);if(urlEl.protocol!="https:"&&urlEl.protocol!="http:"){return;}var iframe=document.getElementById('innerFrame');iframe.src=url;iframe.onload=function(){gapi.rpc.call('..','innerFrameLoaded');};if(enableInteraction){if(forceIosScrolling){var iframeParent=iframe.parentElement;iframeParent.classList.add('forceIosScrolling');}else{iframe.style.overflow='auto';}}else{iframe.style.pointerEvents='none';}}function updateInnerIframeCode(userCode,enableInteraction,forceIosScrolling){gapi.rpc.setup('innerFrame');gapi.rpc.call('innerFrame','updateUserHtmlFrame',undefined,userCode,enableInteraction,forceIosScrolling);}function onPostMessage(ev){if(ev.data['magic']!='SHIC'){return;}var type=ev.data['type'];switch(type){case'resize':var height=ev.data['height'];gapi.rpc.call('..','resize',undefined,height);}}function onGapiInitialized(){gapi.rpc.call('..','gapiInitialized');gapi.rpc.register('updateInnerFrame',updateInnerFrame);gapi.rpc.register('updateInnerIframeCode',updateInnerIframeCode);window.addEventListener('message',onPostMessage);}function loadGapiClient(){gapi.load('gapi.rpc',onGapiInitialized);}if(document.readyState=='complete'){loadGapi();}else{self.addEventListener('load',loadGapi);}</script>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="3" data-index="1" data-label="START" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>START:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="3" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="3" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="4" data-index="1" data-label="UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="4" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="4" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="5" data-index="1" data-label="DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="5" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="5" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="6" data-index="1" data-label="LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="6" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="6" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="7" data-index="1" data-label="RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="7" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="7" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="8" data-index="1" data-label="A" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>A:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="8" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="8" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="0" data-index="1" data-label="B" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>B:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="0" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="0" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="10" data-index="1" data-label="L" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="10" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="10" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="11" data-index="1" data-label="R" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="11" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="11" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="12" data-index="1" data-label="Z" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>Z:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="12" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="12" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="19" data-index="1" data-label="L STICK UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="19" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="19" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="18" data-index="1" data-label="L STICK DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="18" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="18" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="17" data-index="1" data-label="L STICK LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="17" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="17" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="16" data-index="1" data-label="L STICK RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="16" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="16" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="23" data-index="1" data-label="R STICK UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="23" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="23" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="22" data-index="1" data-label="R STICK DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="22" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="22" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="21" data-index="1" data-label="R STICK LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="21" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="21" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="20" data-index="1" data-label="R STICK RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="20" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="20" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="24" data-index="1" data-label="QUICK SAVE STATE" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>QUICK SAVE STATE:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="24" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="24" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="25" data-index="1" data-label="QUICK LOAD STATE" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>QUICK LOAD STATE:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="25" data-value="" data-type="2" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="25" data-value="" data-type="1" data-index="1" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div></div>
+        <div class="ejs--f932566a0af5314da834324c901978" id="controls-2" hidden="">
+            <div>
+                <div style="">
+                    <div class="gamepad" style="font-size:12px">Connected gamepad: <span class="gamepad-name">n/a</span></div>
+                </div>
+                <div style="width:25%;float:left">&nbsp;</div>
+                <div style="font-size:12px;width:50%;float:left">
+                    <div class="row">
+                        <div style="text-align:center;width:50%;float:left">Gamepad</div>
+                        <div style="text-align:center;width:50%;float:left">Keyboard</div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
         
-      </body>
-    </html>  
-    </iframe>
-  </body>
-</html>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="3" data-index="2" data-label="START" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>START:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="3" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="3" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="4" data-index="2" data-label="UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="4" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="4" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="5" data-index="2" data-label="DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="5" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="5" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="6" data-index="2" data-label="LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="6" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="6" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="7" data-index="2" data-label="RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="7" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="7" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="8" data-index="2" data-label="A" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>A:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="8" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="8" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="0" data-index="2" data-label="B" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>B:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="0" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="0" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="10" data-index="2" data-label="L" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="10" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="10" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="11" data-index="2" data-label="R" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="11" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="11" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="12" data-index="2" data-label="Z" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>Z:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="12" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="12" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="19" data-index="2" data-label="L STICK UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="19" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="19" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="18" data-index="2" data-label="L STICK DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="18" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="18" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="17" data-index="2" data-label="L STICK LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="17" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="17" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="16" data-index="2" data-label="L STICK RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="16" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="16" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="23" data-index="2" data-label="R STICK UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="23" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="23" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="22" data-index="2" data-label="R STICK DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="22" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="22" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="21" data-index="2" data-label="R STICK LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="21" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="21" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="20" data-index="2" data-label="R STICK RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="20" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="20" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="24" data-index="2" data-label="QUICK SAVE STATE" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>QUICK SAVE STATE:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="24" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="24" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="25" data-index="2" data-label="QUICK LOAD STATE" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>QUICK LOAD STATE:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="25" data-value="" data-type="2" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="25" data-value="" data-type="1" data-index="2" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div></div>
+        <div class="ejs--f932566a0af5314da834324c901978" id="controls-3" hidden="">
+            <div>
+                <div style="">
+                    <div class="gamepad" style="font-size:12px">Connected gamepad: <span class="gamepad-name">n/a</span></div>
+                </div>
+                <div style="width:25%;float:left">&nbsp;</div>
+                <div style="font-size:12px;width:50%;float:left">
+                    <div class="row">
+                        <div style="text-align:center;width:50%;float:left">Gamepad</div>
+                        <div style="text-align:center;width:50%;float:left">Keyboard</div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="3" data-index="3" data-label="START" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>START:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="3" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="3" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="4" data-index="3" data-label="UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="4" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="4" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="5" data-index="3" data-label="DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="5" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="5" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="6" data-index="3" data-label="LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="6" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="6" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="7" data-index="3" data-label="RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="7" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="7" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="8" data-index="3" data-label="A" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>A:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="8" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="8" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="0" data-index="3" data-label="B" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>B:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="0" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="0" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="10" data-index="3" data-label="L" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="10" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="10" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="11" data-index="3" data-label="R" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="11" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="11" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="12" data-index="3" data-label="Z" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>Z:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="12" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="12" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="19" data-index="3" data-label="L STICK UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="19" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="19" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="18" data-index="3" data-label="L STICK DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="18" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="18" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="17" data-index="3" data-label="L STICK LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="17" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="17" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="16" data-index="3" data-label="L STICK RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>L STICK RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="16" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="16" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="23" data-index="3" data-label="R STICK UP" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK UP:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="23" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="23" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="22" data-index="3" data-label="R STICK DOWN" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK DOWN:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="22" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="22" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="21" data-index="3" data-label="R STICK LEFT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK LEFT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="21" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="21" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="20" data-index="3" data-label="R STICK RIGHT" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>R STICK RIGHT:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align: center; height: 25px; width: 100%; background-color: rgb(204, 204, 204);" type="text" data-id="20" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="20" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="24" data-index="3" data-label="QUICK SAVE STATE" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>QUICK SAVE STATE:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="24" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="24" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ejs--c233fb69cbef43078bc39e9d1efac8" data-id="25" data-index="3" data-label="QUICK LOAD STATE" style="margin-bottom:10px">
+            <div style="width:25%;float:left;font-size:12px">
+                <label>QUICK LOAD STATE:</label>
+            </div>
+            <div style="width:50%;float:left">
+                <div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="25" data-value="" data-type="2" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="width:50%;float:left;padding: 0 5px;">
+                        <input style="text-align:center;height:25px;width: 100%;" type="text" data-id="25" data-value="" data-type="1" data-index="3" readonly="" placeholder="">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <div style="width:25%;float:left">
+                <a class="ejs--6604c83041a275a78837c452a71dd8" href="#" onclick="return false">Set</a>
+            </div>
+            <div style="clear:both"></div>
+        </div></div></div>
+            </div>
+            <div class="ejs--580e3c22e63f8a1eb29694fd0b141b">
+                <a href="#" onclick="return false" class="ejs--bdb54e9fc47f9805b506b746e897bf">Update</a>
+                <a href="#" onclick="return false" class="ejs--ad20569e1449d7b8e99e6465963825">Reset</a>
+                <a href="#" onclick="return false" class="ejs--ad20569e1449d7b8e99e6468571053">Clear</a>
+                <a href="#" onclick="return false" class="ejs--ad20569e1449d7b8e99e6465960456">Cancel</a>
+            </div>
+            <div class="ejs--85a95eb6bf74a40ab61b91a91e5bff" hidden="">
+                <div class="ejs--d169a219343bc32dd4aecc3f6b7f25">
+                    <span>[Select]</span><br>
+                    <div style="color:#fff !important">Press keyboard or gamepad</div>
+                </div>
+            </div>
+        </div>
+        </div><div class="ejs--5e71fd80268afbb1d588e40b993508 ejs__cheat__container" hidden="">
+            <div class="ejs--38cc09882a55e98c76168dbe838aa0">
+                <div class="ejs--b373c9d5029d49324fb8ac3ece96c1">
+                    <h4>Cheats</h4>
+                </div>
+                <div class="ejs--a5e2629abb9a5bcbc8b2c1307922d2">
+                    <div class="ejs--2b4e3c245b7b25dfdac5e09155a68e"></div>
+                </div>
+                <div class="ejs--580e3c22e63f8a1eb29694fd0b141b">
+                    <a href="#" onclick="return false" class="ejs--9e670880bb57e824400fa00f09aaad">Add Cheat</a>
+                    <a href="#" onclick="return false" class="ejs--bdb54e9fc47f9805b506b746e897bf">OK</a>
+                    <a href="#" onclick="return false" class="ejs--ad20569e1449d7b8e99e6465960456">Close</a>
+                </div>
+            </div>
+
+            
+
+            <div class="ejs--eefec939452eb92fad035932d0f47c ejs--bef295f3125e9ba83d4f3677264bae" id="modal-85cd7a1c543a484b" aria-hidden="true">
+                <div class="ejs--f1f43b27384834c8c22c6f81d0c5ae" tabindex="-1" data-modal-close="">
+                <div class="ejs--c4ee33766a01ed0356c3ec07898e96" style="width:100%" role="dialog" aria-modal="true" aria-labelledby="modal-85cd7a1c543a484b-title">
+                    <div class="ejs--a073f32023da1ced805c5f95a4e81c">
+                    <h2 class="ejs--81470ba5e6a6d68014839ad4d9a977" id="modal-85cd7a1c543a484b-title">
+                    Add Cheat Code
+                    </h2>
+                    <button class="ejs--c3c85789c2a7f56d8b26dba75b7e1f" aria-label="Close modal" data-modal-close=""></button>
+                    </div>
+                    <main class="ejs--db44f5520e6f4fd0dd34b478bb9ee8" id="modal-85cd7a1c543a484b-content">
+
+                        <div class="ejs--940087708c06b6129ce2bfa45f1d89"></div>
+                        <strong>Code</strong><br>
+                        <textarea style="width:100%;height:80px;" class="ejs--572b0b3a0345a6b01b01a15a02842c"></textarea><br>
+                        <strong>Description</strong><br>
+                        <input type="text" class="ejs--a7d7f80c8999469c991ea452a85dd9"><br>
+
+                    </main>
+                    <footer class="ejs--ed44f59bb8cd49177586b140658c6c">
+                    <button class="ejs--319bcec5dee9444e1a2a53d6503b7c ejs--eaf3c1cba25d415d92ac48d7db34dd">Submit</button>
+                    <button class="ejs--319bcec5dee9444e1a2a53d6503b7c" data-modal-close="" aria-label="Close">Close</button>
+                    </footer>
+                </div>
+                </div>
+            </div>
+            </div></div><div class="ejs--c7957d8666bb6b8fc7c3e9c021aaf8" style="position: absolute; display:none;z-index:9"><ul><li><a href="#" onclick="return false">Take Screenshot</a></li><li hidden=""><a href="#" onclick="return false">Cache Manage</a></li><li><a href="#" onclick="return false">Quick Save (F2)</a></li><li><a href="#" onclick="return false">Quick Load (F4)</a></li></ul></div><div class="ejs--2521e1257996f264de36e77cc9c5ee">
+        <div>
+        <div class="ejs--782e3572812f983b3a150eec177391" style="position: absolute;bottom: 20px;left: 50%;transform: translateX(-50%);" hidden="">
+        <div class="ejs--c426dd1d179aa351e6cec47e1d9438">Game Core ready</div>
+        <div class="ejs--31e7e81db48819ee35ec6f50378a2e"></div>
+        <div class="ejs--20d4eb2646d396f558a645dc0574f1">Game Data ready</div>
+        </div>
+        <div style="position: absolute;bottom: 20px;left: 50%;transform: translateX(-50%);">
+        <a href="#" onclick="return false" class="ejs--73f9b4e94a7a1fe74e11107d5ab2ef" hidden="">Play Now</a>
+        </div>
+        </div></div></div>
+      </div>
+<script async="" src="data/emulator.js?v=0.4.25"></script><script type="text/javascript">
+    EJS_startOnLoaded = true;
+    EJS_gameID = 1;
+    EJS_player = '#game';
+    EJS_gameUrl = 'https://rom-storage.n64-emu.repl.co/ssb.7z';
+    EJS_core = 'n64';
+    EJS_pathtodata = 'data/';
+</script>
+<script src="data/loader.js"></script>
+  
+<script src="https://n64.endinternetcensorship.repl.co/emu/data/webrtc-adapter.js"></script></body></html>

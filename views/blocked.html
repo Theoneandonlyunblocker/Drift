@@ -21,10 +21,16 @@
   </head>
   <body>    
     <center>
-      <p>
-				Looks Like {{ site }} is blocked!
+      <p id="blockedSite">
+				
+			</p>
     </center>
     
     <script src="/content/js/index.js"></script>
+		<script>
+			var blocked = getCookie('proxyurl')
+			var siteDispl = document.getElementById('blockedSite')
+			siteDispl.innerText = `Looks Like ${blocked} is Blocked`
+		</script>
   </body>
 </html>

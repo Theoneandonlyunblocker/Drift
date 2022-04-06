@@ -201,7 +201,8 @@ function proxy() {
 	 bing: 'bing.com/search?q=',
 	 brave: 'search.brave.com/search?q=',
 	 twitter: 'twitter.com/search?q=',
-	 reddit: 'www.reddit.com/search/?q='
+	 reddit: 'www.reddit.com/search/?q=',
+	 gigablast: 'gigablast.com/search?c=main&q='
 	};
 	var action = '/main/'+engines.google+inputUrl
   if (isValidURL(inputUrl)) {

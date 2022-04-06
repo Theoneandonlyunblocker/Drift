@@ -179,19 +179,25 @@ var observeDOM = (function() {
   }
 })()
 
-const locationUpdate = {
-	get(target, prop, receiver) {
-		window.alert(target)
-		return ''
-	}
-}
+var target = {
+  message1: "hello",
+  message2: "everyone"
+};
 
-var locationUpdater = new Proxy(sourceMap,locationUpdate)
+const handler1 = {
+  get(target, prop, receiver) {
+    return "world";
+  }
+};
+
+const proxy1 = new Proxy(target, handler1);
 
 function update() {
   var DRIFTelements = document.querySelectorAll("*")
 	
-  for (let i = 0; i < DRIFTelements.length; i++) {
+	//location.href = "google.com"
+  
+	for (let i = 0; i < DRIFTelements.length; i++) {
     var DRIFTelm = DRIFTelements[i]
     var checked = DRIFTelm.getAttribute('drift-checked')
     var href = DRIFTelm.getAttribute('href')
