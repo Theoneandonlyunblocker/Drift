@@ -94,13 +94,13 @@ function write(html, url, content) {
 			var tagType = elm.nodeName.toLowerCase()
 
 			if (tagType == 'script') {
-				js = elm.innerText
+				js = elm.text
 				if (js) {
 					js = js.replace(/window.location/g, 'sourceMap')
 					js = js.replace(/document.location/g, 'sourceMap')
 					js = js.replace(/location.replace/g, 'redirectDrift')
 					js = js.replace(/location/g, 'sourceMap')
-					elm.innerText = js
+					elm.text = js
 				}
 			}
 
