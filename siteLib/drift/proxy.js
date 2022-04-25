@@ -17,7 +17,7 @@ String.prototype.replaceAt = function (index, replacement) {
   return this.substring(0, index) + replacement + this.substring(index + 1);
 }
 
-async function server(req, res) {
+async function server(req, res, next) {
   var proxyPath = config.prefix
   var path = req.originalUrl.substr(0, proxyPath.length)
 
@@ -41,7 +41,8 @@ async function server(req, res) {
     proxyUrl = `https://${proxyUrl}`
     
     //console.log(proxyUrl)
-    
+		
+    res.set('proxyUrl',proxyUrl)
     res.cookie('proxypath', proxyPath)
     res.cookie('proxyUrl', proxyUrl)
 
@@ -87,7 +88,6 @@ async function server(req, res) {
       //console.log(proxyUrl)
     }
   }
-
 };
 
 module.exports = {

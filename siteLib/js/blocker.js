@@ -17,8 +17,8 @@ function detectCatagory(link) {
 	const nsfw = r.is_nsfw(link);
 	const scam = r.is_scam(link);
 	const uncatogorized = r.is_unk(link);
-	
-	if (dating || nsfw || pirated || cam || BlockedSites.includes(url.hostname)){
+
+	if (pirated | cam | BlockedSites.includes(url.hostname)){
 		return true
 	} else {
 		return false
@@ -28,14 +28,18 @@ function detectCatagory(link) {
 function filter(req, res, next) {
 	var url = req.originalUrl.split('/main')
 
+	res.set('Service-Worker-Allowed','true')
+	
 	if (url.length === 2) {
 		url = url[1]
 		url = url.substr(1, url.length)
+
 		if (detectCatagory(url)){
 			res.sendFile(__dirname.replace('/siteLib/js','')+'/views/blocked.html')
 		} else {
 			next()
 		}
+		
 	} else {
 		next()
 	}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Math Games</title>
+	<link rel="stylesheet" href="/asset/css/style.css">
+	<meta property="og:title" content="Math" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://my.site.com" />
+	<meta property="og:description" content="Learn Math Online!" />
+	<meta name="theme-color" content="#FF0000">
+</head>
+
+<body>
+	<script>
+				function getCookie(cName) {
+		    const name = cName + "=";
+		    const cDecoded = decodeURIComponent(document.cookie);
+		    const cArr = cDecoded.split('; ');
+		    let res;
+		    cArr.forEach(val => {
+		        if (val.indexOf(name) === 0){
+							res = val.substring(name.length)
+							return res
+						}
+					})
+		}
+		
+		function init() {
+		    var input = document.querySelector('#cookieSet')
+				input.onkeypress = function(e) {
+		        if (!e) e = window.event;
+		        var keyCode = e.code || e.key;
+		        if (keyCode == 'Enter') {
+		            authenticate(input)
+		        }
+		    }
+		}
+		
+		function authenticate(elm) {
+		    var value = elm.value
+		    if (!getCookie('Auth')) {
+		        document.cookie = "Auth=" + value
+		    } else {
+		        document.cookie = "Auth="
+		    }
+		    location.pathname = "/"
+		}
+		
+		window.onload = function() {
+		    init()
+		}
+	</script>
+	<input placeholder="Password" id="cookieSet">
+</body>
+
+</html>

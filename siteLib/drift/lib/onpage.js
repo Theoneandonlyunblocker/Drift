@@ -3,10 +3,10 @@ navigator.serviceWorker.getRegistrations().then(function(registrations) {
     registration.unregister()
   }
 })
-config = { "prefix": "/main" }
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/content/drift/lib/service-worker.js', {
+    navigator.serviceWorker.register(`/content/drift/lib/service-worker.js`, {
       scope: '/main'
     })
       .then((registration) => {
@@ -19,6 +19,8 @@ if ('serviceWorker' in navigator) {
 } else {
   console.log('Service Workers not supported')
 }
+
+config = { "prefix": "/main" }
 
 const updatedCheck = false
 
@@ -68,11 +70,6 @@ function validUrl(trUrl) {
   }
 }
 
-//you would have to define a no object to make window.proxyUrl work
-
-//window.ProxyUrl = location.href.replace('/main/', '').replace(location.origin, '').replace('https://', 'https:/').replace('https:/', 'https://')
-
-
 var proxyUrl = getCookie('proxyUrl')
 if (proxyUrl.startsWith('https://') || proxyUrl.startsWith('http://')) {
   var formatedUrl = new URL(proxyUrl)
@@ -82,7 +79,7 @@ if (proxyUrl.startsWith('https://') || proxyUrl.startsWith('http://')) {
 var proxyPath = getCookie('proxypath')
 
 sourceMap = formatedUrl
-//Other stuff relating to location.***
+//Other stuff relating to location.***return Reflect.get(...arguments);
 sourceMap.replace = redirectDrift
 
 if (location.pathname === "/") {
@@ -95,7 +92,16 @@ if (location.pathname === "/") {
 
 function redirectDrift(url) {
   location.href = rewriteUrlLogic(url)
+	return ''
 }
+
+const loactionHandler = {
+  get(target, prop, receiver) {
+    return redirectDrift(sourceMap.href)
+  }
+};
+
+const locationProxy = new Proxy(sourceMap, loactionHandler);
 
 function rewriteUrlLogic(link) {
   let rewritten
@@ -179,24 +185,9 @@ var observeDOM = (function() {
   }
 })()
 
-var target = {
-  message1: "hello",
-  message2: "everyone"
-};
-
-const handler1 = {
-  get(target, prop, receiver) {
-    return "world";
-  }
-};
-
-const proxy1 = new Proxy(target, handler1);
-
 function update() {
   var DRIFTelements = document.querySelectorAll("*")
 	
-	//location.href = "google.com"
-  
 	for (let i = 0; i < DRIFTelements.length; i++) {
     var DRIFTelm = DRIFTelements[i]
     var checked = DRIFTelm.getAttribute('drift-checked')
@@ -256,6 +247,7 @@ window.onload = function() {
   }, 0000)
 }
 window.onbeforeunload = function() {
+	location.href = rewriteUrlLogic(location.href)
   navigator.serviceWorker.getRegistrations().then(function(registrations) { for (let registration of registrations) { registration.unregister(); } });
 }
 

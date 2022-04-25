@@ -17,7 +17,16 @@
     <title>Drift | Browse the web freely</title>
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+	<style>
+		.bookmarks {
+			pointer-events: none;
+			-webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+		}
+	</style>
   <script>
     function clipbord(id){
       var code = id;
@@ -39,13 +48,12 @@
         <li><a href='/'>Home</a></li>
       </ul>
     </div>
-    <h2 style="font-size:20px; color:lightgrey;">Bookmarklets</h2>
-
     <div class="alertBox">
       <a id="alertText" style="display: none;">Text Copied</a>
     </div>
-      
+      <h3>Under Construction</h3>
     <div class="bookmarks">
+			<h2 style="font-size:20px; color:lightgrey;">Bookmarklets</h2>
       <div class="bookmark">
         <p onclick="clipbord(javascript:var%20script%20=%20document.createElement('script');%20script.src='//tab-js.jimmynuetron.repl.co/script.js';%20document.body.appendChild(script);void(0);">Tab JS</p>
       </div>

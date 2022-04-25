@@ -9,7 +9,13 @@ const drift = require('./siteLib/drift/index.js')
 const experimental = require('./siteLib/drift/proxy.js')
 const blocker = require('./siteLib/js/blocker.js')
 var analytics = require('@enderkingj/analytics');
-//var comipleGames = require('./siteLib/js/gameCompiler.js')
+var comipleGames = require('./siteLib/js/gameCompiler.js')
+const conceal = require('./siteLib/js/conceal.js')
+
+const middleware = conceal.hide({
+	"Auth":'Module',
+	"Fake_Page_Dir": __dirname+'/views/fake/'
+})
 
 app.use((req, res, next) => {
   if (analytics(req, res)==false) return next();
@@ -18,9 +24,9 @@ app.use((req, res, next) => {
   };
 }) // there we go basic stuff set up
 
-app.use(blocker.filter)
-app.use(device.capture());
 app.use(cookieParser());
+app.use(conceal.proxy)
+app.use(blocker.filter)
 app.set('view engine', 'hbs');
 //console.log(drift.contentSrc('onpage.js').toString())
 const port = 8080
@@ -44,6 +50,10 @@ app.get('/', function(req, res) {
     "root": __dirname + "/views"
   })
 
+})
+
+app.get('/auth',function(req,res){
+	res.sendFile(__dirname + '/views/auth.html')
 })
 
 app.get('/ab',function(req,res){

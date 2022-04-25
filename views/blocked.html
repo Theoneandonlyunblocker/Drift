@@ -17,18 +17,23 @@
     <title>Drift | Browse the web freely</title>
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+    <style>
+			* {
+				font-size: 50;
+			}
+		</style>
   </head>
   <body>    
     <center>
       <p id="blockedSite">
 				
 			</p>
+			<a>If you think this is a mistake you can contact System69#9874 On The </a><a href="https://discord.gg/ublock/">TN Discord</a>
     </center>
     
     <script src="/content/js/index.js"></script>
 		<script>
-			var blocked = getCookie('proxyurl')
+			var blocked = getCookie('proxyUrl')
 			var siteDispl = document.getElementById('blockedSite')
 			siteDispl.innerText = `Looks Like ${blocked} is Blocked`
 		</script>
